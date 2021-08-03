@@ -13,6 +13,8 @@
    <?= $user->birthday?>
    </div>
 
+   <?php # require 'views/users/partials/editform.view.php' ?>
+
    <div class="educations">
         <?php foreach ($educations as $education) :?>
             <?= $education->name;?>
