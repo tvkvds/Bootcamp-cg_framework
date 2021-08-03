@@ -28,6 +28,46 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
+        'data' => [
+            [
+            'user_id' => 1,
+            'hobby' => 'Olifanten schieten',
+            'description' => 'Alleen als het nieuwe maan is',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 2,
+            'hobby' => 'Crepes maken',
+            'description' => 'Van crepespapier',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 3,
+            'hobby' => 'MongoDB Models maken',
+            'description' => 'Met mongoose',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+        
+        ]
     ],
 ];
+
+
+/*
+Minimum data to make new row
+
+    [
+        'user_id' => 0,
+        'hobby' => ' ',
+        'description' => ' ',
+        'created' => date('Y-m-d H:i:s'),
+        'created_by' => 0,
+    ],
+
+*/
+      

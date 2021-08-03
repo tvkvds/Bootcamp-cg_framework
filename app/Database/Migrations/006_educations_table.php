@@ -31,6 +31,47 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
+        'data' => [[
+            'user_id' => 1,
+            'start_year' => 2012,
+            'name' => 'PHP',
+            'info' => 'PHP Backend Developer',
+            'institution' => 'Codegorillas',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 2,
+            'start_year' => 2001,
+            'name' => 'Stucadoor',
+            'info' => 'Aan een stuk door',
+            'institution' => 'Deur de deur deur',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 3,
+            'start_year' => 1978,
+            'name' => 'Kwakmeister',
+            'info' => 'professionel kwakkeren',
+            'institution' => '*kwak*',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ]]
     ],
 ];
+
+/*
+Minimum data to make new row
+
+'user_id' => 1,
+'start_year' => 2000,
+'name' => ' ',
+'info' => ' ',
+'institution' => ' ',
+'created' => date('Y-m-d H:i:s'),
+'created_by' => 1,
+
+*/
