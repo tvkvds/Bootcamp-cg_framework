@@ -7,6 +7,7 @@ use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Models\RoleModel;
+use App\Models\EducationModel;
 
 class UserController extends Controller
 {
@@ -63,8 +64,12 @@ class UserController extends Controller
         $userId = Helper::getIdFromUrl('user');
         
         $user = UserModel::load()->get($userId);
-
-
+        $educations = EducationModel::load()->getUserEducations($userId);
+       
+        View::render('users/edit.view', [
+            'user' => $user, 
+            'educations' => $educations,
+        ]);
     }
 
     /**
