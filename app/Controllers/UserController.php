@@ -16,7 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $userModel = new UserModel();
+
+        View::render('users/index.view', [
+            'users' => $userModel->all(),
+            
+        ]);
     }
 
     /**
@@ -78,6 +83,10 @@ class UserController extends Controller
         $userId = Helper::getIdFromUrl('user');
         
         $user = UserModel::load()->get($userId);
+
+        View::render('users/show.view', [
+            'user' => $user, 
+        ]);
     }
 
     /**

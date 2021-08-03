@@ -108,4 +108,9 @@ class UserModel extends Model
             isset($_SESSION['user']) && 
             isset($_SESSION['user']['uid']) ? $_SESSION['user']['uid'] : null;
     }
+
+    /*
+     *  Get all users - rows in the user table
+     */
+    
 }
