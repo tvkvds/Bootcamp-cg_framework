@@ -1,9 +1,14 @@
+<?php var_dump($vars['education']);?>
+
 <?php require 'views/partials/header.view.php' ?>
 
-    <h3>educations index</h3>
-    
+    <h3>educations show</h3>
     <ul>
-    <?php var_dump($vars)?>
+    <?php $education = $vars['education'];?>
+    <?= $education->name ?>
+    <?= $education->info ?>
+    <?= $education->institution ?>
+    <a href="../education/<?=$education->id?>/edit">Edit</a>
     </ul>
 
 <?php require 'views/partials/footer.view.php' ?>

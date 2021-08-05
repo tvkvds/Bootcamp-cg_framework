@@ -53,9 +53,27 @@ $router->get('educations', 'App/Controllers/EducationController.php@index', [
     'index' => Permissions::class
 ]);
 
-$router->get('education/{id}', 'App/Controllers/UserController.php@show', [
+$router->get('education/{id}', 'App/Controllers/EducationController.php@show', [
     'show' => Permissions::class
 ]);
+
+
+$router->get('education/{id}/create', 'App/Controllers/EducationController.php@create', [
+    'edit' => Permissions::class
+]);
+
+$router->post('education/store', 'App/Controllers/EducationController.php@store', [
+    'store' => Permissions::class
+]);
+
+$router->get('education/{id}/edit', 'App/Controllers/EducationController.php@edit', [
+    'edit' => Permissions::class
+]);
+
+$router->post('education/{id}/update', 'App/Controllers/EducationController.php@update', [
+    'update' => Permissions::class
+]);
+
 
 
 

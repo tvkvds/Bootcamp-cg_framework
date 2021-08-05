@@ -22,6 +22,13 @@
                      <li class="nav-item">
                      <a class="nav-link" href="/login">login</a>
                      </li>
+                     <li class="nav-item">
+                     <a class="nav-link" href="/users">users</a>
+                     </li>
+                     <li class="nav-item">
+                     <a class="nav-link" href="/educations">educations</a>
+                     </li>
+                     
                   </ul>
       
                </div>

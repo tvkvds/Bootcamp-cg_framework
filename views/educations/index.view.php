@@ -1,8 +1,10 @@
+
+
 <?php require 'views/partials/header.view.php' ?>
 
     <h3>educations index</h3>
 
-    <?php var_dump($vars)?>
+  
     
     <ul>
     <?php foreach ($vars['educations'] as $education) : ?>
@@ -14,5 +16,7 @@
         </li>
     <?php endforeach ;?>
     </ul>
+
+    <a href=""><h3>Add new</h3></a>
 
 <?php require 'views/partials/footer.view.php' ?>
