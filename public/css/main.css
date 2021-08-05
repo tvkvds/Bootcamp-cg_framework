@@ -11,7 +11,7 @@ body {
 a:link,
 a:active,
 a:visited {
-    color: white;
+    color: rgb(12, 11, 11);
 }
 
 .error-message {
@@ -191,4 +191,7 @@ footer {
 
 input[type="text"], input[type="email"] {
     width: 100%;
+}
+.navbar{
+    background-color: rgb(158,210,157);
 }

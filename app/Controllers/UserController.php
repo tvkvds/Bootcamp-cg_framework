@@ -7,6 +7,7 @@ use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Models\RoleModel;
+use App\Models\EducationModel;
 
 class UserController extends Controller
 {
@@ -16,7 +17,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $userModel = new UserModel();
+
+        View::render('users/index.view', [
+            'users' => $userModel->all(),
+            
+        ]);
     }
 
     /**
@@ -38,9 +44,6 @@ class UserController extends Controller
         // Save post data in $user var
         $user = $_POST;
 
-        // Remmove the form token
-        unset($user['f_token']);
-
         // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
         $user['created_by'] = Helper::getUserIdFromSession();
@@ -59,7 +62,12 @@ class UserController extends Controller
         
         $user = UserModel::load()->get($userId);
 
-
+        return View::render('users/edit.view', [
+            'method'    => 'POST',
+            'action'    => '/user/' . $userId . '/update',
+            'user'      => $user,
+            'roles'     => RoleModel::load()->all(),
+        ]);
     }
 
     /**
@@ -67,7 +75,19 @@ class UserController extends Controller
      */
     public function update()
     {
-        
+        // Save post data in $user var
+        $user = $_POST;
+
+        // Remmove the form token
+        unset($user['f_token']);
+
+        // Create a password, set created_by ID and set the date of creation
+        $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
+        $user['created_by'] = Helper::getUserIdFromSession();
+        $user['created'] = date('Y-m-d');
+
+        // Save the record to the database
+        UserModel::load()->update($user, Helper::getUserIdFromSession());
     }
 
     /**
@@ -78,6 +98,10 @@ class UserController extends Controller
         $userId = Helper::getIdFromUrl('user');
         
         $user = UserModel::load()->get($userId);
+
+        View::render('users/show.view', [
+            'user' => $user, 
+        ]);
     }
 
     /**

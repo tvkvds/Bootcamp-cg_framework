@@ -2,11 +2,11 @@
     <div class="container mt-5">
         <div class="row mb-3">
             <div class="col-md-4">
-                <input type="text" name="first_name" placeholder="Voornaam">
+                <input type="text" name="first_name" placeholder="Voornaam" value="<?= isset($vars['user']) ? $vars['user']->first_name : '' ?>">
             </div>
 
             <div class="col-md-6">
-                <input type="text" name="last_name" placeholder="Achternaam">
+                <input type="text" name="last_name" placeholder="Achternaam" value="<?= isset($vars['user']) ? $vars['user']->last_name : '' ?>">
             </div>
         </div>
 

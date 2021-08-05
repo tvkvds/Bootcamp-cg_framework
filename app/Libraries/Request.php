@@ -53,6 +53,11 @@ class Request
                     'message' => "Formulier verlopen, refresh en probeer opnieuw.",
                 ]));
             }
+
+        }
+
+        if (isset($_POST['f_token'])) {
+            unset($_POST['f_token']);
         }
     }
     

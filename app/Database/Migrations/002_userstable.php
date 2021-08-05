@@ -58,6 +58,19 @@ return [
             'birthday'   => '1996-03-19',
             'created'    => date('Y-m-d H:i:s'),
             'created_by' => 1,
+        ],
+
+        [
+            'first_name' => 'Donald',
+            'last_name'  => 'Duck',
+            'email'      => 'duck@codegorilla.nl',
+            'password'   => password_hash('Gorilla1!', PASSWORD_DEFAULT),
+            'role'       => 2,
+            'country'    => 156,
+            'city'       => 'Duckville',
+            'birthday'   => '1975-12-05',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1,
         ]),
     ],
 ];

@@ -12,6 +12,7 @@ return [
         `end_year` year DEFAULT NULL,
         `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `info` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        `institution` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
         `created` timestamp NOT NULL,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
         `deleted` timestamp DEFAULT NULL,
@@ -30,7 +31,47 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
-        'type' => 'array',
+        'data' => [[
+            'user_id' => 1,
+            'start_year' => 2012,
+            'name' => 'PHP',
+            'info' => 'PHP Backend Developer',
+            'institution' => 'Codegorillas',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 2,
+            'start_year' => 2001,
+            'name' => 'Stucadoor',
+            'info' => 'Aan een stuk door',
+            'institution' => 'Deur de deur deur',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 3,
+            'start_year' => 1978,
+            'name' => 'Kwakmeister',
+            'info' => 'professionel kwakkeren',
+            'institution' => '*kwak*',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ]]
     ],
 ];
+
+/*
+Minimum data to make new row
+
+'user_id' => 1,
+'start_year' => 2000,
+'name' => ' ',
+'info' => ' ',
+'institution' => ' ',
+'created' => date('Y-m-d H:i:s'),
+'created_by' => 1,
+
+*/

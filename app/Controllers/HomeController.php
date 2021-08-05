@@ -9,9 +9,13 @@ class HomeController {
 
     public function index()
     {
-        $user = UserModel::load();
+        $userModel = new UserModel();
+       
 
-        return View::render('site/home.view');
+        View::render('site/home.view', [
+            'users' => $userModel->all(['first_name', 'last_name', 'id']),
+            
+        ]);
     }
 
 }
