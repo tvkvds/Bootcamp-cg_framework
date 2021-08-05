@@ -32,6 +32,23 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
+        'data' => [  
+           
+            
+        ]
     ],
 ];
+
+/*
+Minimum data to make new row
+
+        [
+            'user_id' => 1,
+            'start_year' => 2012,
+            'function' =>  'function',
+            'company' =>  'company',
+            'created' =>  date('Y-m-d H:i:s'),
+            'created_by' =>  1,
+        ],
+
+*/

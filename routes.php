@@ -19,9 +19,6 @@ $router->get('admin', 'App/Controllers/AdminController.php@index', [
     'auth' => WhenNotLoggedin::class,
 ]);
 
-$router->get('user', 'App/Controllers/UserController.php@show', [
-    'show' => Permissions::class
-]);
 
 $router->get('user/{id}', 'App/Controllers/UserController.php@show', [
     'show' => Permissions::class
@@ -33,12 +30,16 @@ $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
 
 $router->get('user/create', 'App/Controllers/UserController.php@create');
 
-$router->post('user/update', 'App/Controllers/UserController.php@update', [
+$router->post('user/{id}/update', 'App/Controllers/UserController.php@update', [
     'update' => Permissions::class
 ]);
 
 $router->post('user/store', 'App/Controllers/UserController.php@store', [
     'store' => Permissions::class
+]);
+
+$router->post('user/{id}/destroy', 'App/Controllers/UserController.php@update', [
+    'update' => Permissions::class
 ]);
 
 $router->get('me', 'App/Controllers/ProfileController.php@index');

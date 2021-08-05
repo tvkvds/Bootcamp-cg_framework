@@ -30,6 +30,48 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
+        'data' => [
+            [
+                'user_id' => 1, #int NOT NULL,
+                'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'category' => 'category', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'created' => date('Y-m-d H:i:s'), #timestamp NOT NULL,
+                'created_by' => 1 #int(11) NOT NULL,
+            ],
+            [
+                'user_id' => 2, #int NOT NULL,
+                'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'category' => 'category', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'created' => date('Y-m-d H:i:s'), #timestamp NOT NULL,
+                'created_by' => 1 #int(11) NOT NULL,
+            ],
+            [
+                'user_id' => 3, #int NOT NULL,
+                'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'category' => 'category', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                'created' => date('Y-m-d H:i:s'), #timestamp NOT NULL,
+                'created_by' => 1 #int(11) NOT NULL,
+            ],
+        ],
     ],
 ];
+
+/*
+Minimum data to make new row
+
+        [
+        'user_id' => 1, #int NOT NULL,
+        'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        'category' => 'category' #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        'created' => date('Y-m-d H:i:s') #timestamp NOT NULL,
+        'created_by' => 1 #int(11) NOT NULL,
+        ],
+
+
+
+
+*/

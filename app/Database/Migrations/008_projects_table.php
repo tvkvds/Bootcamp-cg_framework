@@ -30,6 +30,47 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
+        'data' => [
+            [
+                'user_id' => 1,
+                'name' =>  'tic-tac-toe',
+                'source' =>  'https://playtictactoe.org/',
+                'live' =>  1,
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+            ], 
+
+            [
+                'user_id' => 2,
+                'name' =>  'nu.nl',
+                'source' =>  'https://www.nu.nl',
+                'live' =>  1,
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+            ], 
+
+            [
+                'user_id' => 3,
+                'name' =>  'Github',
+                'source' =>  'https://github.com/tvkvds',
+                'live' =>  1,
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+            ], 
+        ],
     ],
 ];
+
+/*
+Minimum data to make new row
+
+    [
+        'user_id' => 0,
+        'name' =>  ' ',
+        'source' =>  ' ',
+        'live' =>  0/1,
+        'created' =>  date('Y-m-d H:i:s'),
+        'created_by' =>  1,
+    ], 
+
+*/
