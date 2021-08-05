@@ -7,7 +7,6 @@ use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Models\RoleModel;
-use App\Models\EducationModel;
 
 class UserController extends Controller
 {

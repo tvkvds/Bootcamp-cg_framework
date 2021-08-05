@@ -71,6 +71,19 @@ return [
             'birthday'   => '1975-12-05',
             'created'    => date('Y-m-d H:i:s'),
             'created_by' => 1,
+        ],
+    
+        [
+            'first_name' => 'tam',
+            'last_name'  => 'ster',
+            'email'      => 'tam@test.nl',
+            'password'   => password_hash('Gorilla1!', PASSWORD_DEFAULT),
+            'role'       => 1,
+            'country'    => 156,
+            'city'       => 'mm\'n',
+            'birthday'   => '1985-04-02',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1,
         ]),
     ],
 ];
