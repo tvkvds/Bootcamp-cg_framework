@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
+use App\Models\EducationModel;
 use App\Models\RoleModel;
 
 class UserController extends Controller
@@ -94,9 +95,11 @@ class UserController extends Controller
         $userId = Helper::getIdFromUrl('user');
         
         $user = UserModel::load()->get($userId);
+        #$education = EducationModel::load()->getUserEducations($userId);
 
         View::render('users/show.view', [
             'user' => $user, 
+            #'educations' => $education,
         ]);
     }
 

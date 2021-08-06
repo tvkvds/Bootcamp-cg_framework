@@ -74,6 +74,20 @@ $router->post('education/{id}/update', 'App/Controllers/EducationController.php@
     'update' => Permissions::class
 ]);
 
+//job routes
+
+$router->get('job', 'App/Controllers/JobController.php@index', [
+    'index' => Permissions::class
+]);
+
+$router->get('job/{id}', 'App/Controllers/JobController.php@show', [
+    'show' => Permissions::class
+]);
+
+$router->get('job/{id}/edit', 'App/Controllers/JobController.php@edit', [
+    'edit' => Permissions::class
+]);
+
 
 
 

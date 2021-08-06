@@ -1,3 +1,5 @@
+<?php var_dump($_SESSION);?>
+
 <?php require 'views/partials/header.view.php' ?>
     Home
 

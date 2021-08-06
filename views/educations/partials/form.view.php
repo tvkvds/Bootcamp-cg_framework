@@ -1,10 +1,5 @@
-?<?php var_dump($vars);?>
 
 <form method="<?= $vars['method'] ?>" action="<?=$vars['action']?>">
-
-user_id
-created
-created by
 
     <div class="container mt-5">
 
@@ -50,6 +45,7 @@ created by
         </div>
 
         <input type="hidden" name="f_token" value="<?= createToken() ?>">
+        <input type="hidden" name="id" value="<?= isset($vars['education']) ? $vars['education']->id : '' ?>">
 
         <input type="submit" value="Opslaan">
 

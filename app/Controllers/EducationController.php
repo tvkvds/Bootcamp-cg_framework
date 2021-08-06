@@ -22,7 +22,8 @@ class EducationController extends Controller
 
         View::render('educations/index.view', [
             
-            'educations' => $education->getUserEducations($id)
+            'educations' => $education->getUserEducations($id),
+            'user' => $id,
            
         ]);
     }
@@ -67,7 +68,7 @@ class EducationController extends Controller
 
         EducationModel::load()->store($education);  //send to database
 
-        View::redirect("educations"); //redirect to index page educations
+        View::redirect("education"); //redirect to index page educations
 
     }
 
@@ -87,32 +88,19 @@ class EducationController extends Controller
             'action'    => '/education/' . $education->id . '/update', //set where the form must be submitted to
             'education' => $education, //set data being passed to page
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
+            ''
         ]);
     }
 
     public function update()
     {
-        $education = $_POST;
+        $education = $_POST; //get data from req
 
-        $user_id = Helper::getUserIdFromSession(); //set id of user
 
-        if ($education['user_id'] === $user_id){
-        
-        //find specific education in database, get user_id, compare it to session id, 
-        //if they don't compare, redirect back
-        //is circumvented on the front end by not showing educations that aren't of the user
        
-
-        EducationModel::load()->update($education, $education['user_id']); //send to database
-
-        View::redirect('education');
-        }
-
-        else {
+        EducationModel::load()->update($education, $education['id']);
 
         View::redirect('education');
-        //add flash message?
-        }
     }
 
 

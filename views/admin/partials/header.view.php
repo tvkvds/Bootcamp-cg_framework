@@ -1,3 +1,5 @@
+<?php require 'views/partials/header.view.php' ?>
+
 <header>
     <div class="row">
         <div class="col-md-10">
@@ -9,3 +11,6 @@
         </div>
     </div>
 </header>
+
+
+<?php require 'views/partials/footer.view.php' ?>

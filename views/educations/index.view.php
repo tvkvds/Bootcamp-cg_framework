@@ -19,6 +19,6 @@
     </ul>
     <?php endif; ?>
 
-    <a href="education/<?=$education->id?>/create"><h3>Add new</h3></a>
+    <a href="education/<?=$vars['user']?>/create"><h3>Add new</h3></a>
 
 <?php require 'views/partials/footer.view.php' ?>

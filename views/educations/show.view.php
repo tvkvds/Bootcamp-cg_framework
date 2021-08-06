@@ -1,4 +1,4 @@
-<?php var_dump($vars['education']);?>
+
 
 <?php require 'views/partials/header.view.php' ?>
 
