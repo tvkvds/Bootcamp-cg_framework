@@ -16,11 +16,14 @@ class EducationController extends Controller
      */
     public function index()
     {
-        $educationModel = new EducationModel();
+        
+        $education = new EducationModel();
+        $id = Helper::getUserIdFromSession(); //set user id 
 
         View::render('educations/index.view', [
-            'educations' => $educationModel->all(),
             
+            'educations' => $education->getUserEducations($id)
+           
         ]);
     }
 
@@ -73,14 +76,16 @@ class EducationController extends Controller
      */
     public function edit()
     {
-        $educationId = Helper::getIdFromUrl('education'); //gets id of requested education
+        $education = new EducationModel;
+
+        $education->id = Helper::getIdFromUrl('education'); //gets id of requested education
         
-        $education = EducationModel::load()->get($educationId); //gets one education record
+        $education = EducationModel::load()->get($education->id); //gets one education record
 
         return View::render('educations/edit.view', [
             'method'    => 'POST',  //set method for the form
-            'action'    => '/education/' . $educationId . '/update', //set where the form must be submitted to
-            'education'      => $education, //set data being passed to page
+            'action'    => '/education/' . $education->id . '/update', //set where the form must be submitted to
+            'education' => $education, //set data being passed to page
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
         ]);
     }
@@ -89,15 +94,25 @@ class EducationController extends Controller
     {
         $education = $_POST;
 
-        $education['user_id'] = Helper::getUserIdFromSession(); //set id of user
+        $user_id = Helper::getUserIdFromSession(); //set id of user
+
+        if ($education['user_id'] === $user_id){
+        
+        //find specific education in database, get user_id, compare it to session id, 
+        //if they don't compare, redirect back
+        //is circumvented on the front end by not showing educations that aren't of the user
        
 
-        EducationModel::load()->update($education, 1); //send to database
+        EducationModel::load()->update($education, $education['user_id']); //send to database
 
-        dd($education);
+        View::redirect('education');
+        }
 
-        
+        else {
 
+        View::redirect('education');
+        //add flash message?
+        }
     }
 
 

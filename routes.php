@@ -49,7 +49,7 @@ $router->post('user/{id}/destroy', 'App/Controllers/UserController.php@update', 
 
 //education routes
 
-$router->get('educations', 'App/Controllers/EducationController.php@index', [
+$router->get('education', 'App/Controllers/EducationController.php@index', [
     'index' => Permissions::class
 ]);
 

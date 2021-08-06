@@ -26,7 +26,7 @@
                      <a class="nav-link" href="/users">users</a>
                      </li>
                      <li class="nav-item">
-                     <a class="nav-link" href="/educations">educations</a>
+                     <a class="nav-link" href="/education">educations</a>
                      </li>
                      
                   </ul>

@@ -24,9 +24,9 @@ return [
 
     'relations' => [
         'ALTER TABLE `educations` ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `educations` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `educations` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `educations` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
     ],
 
     'seeder' => [
@@ -42,11 +42,41 @@ return [
         ],
 
         [
+            'user_id' => 1,
+            'start_year' => 2001,
+            'name' => 'Stucadoor',
+            'info' => 'Aan een stuk door',
+            'institution' => 'Deur de deur deur',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
             'user_id' => 2,
             'start_year' => 2001,
             'name' => 'Stucadoor',
             'info' => 'Aan een stuk door',
             'institution' => 'Deur de deur deur',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 2,
+            'start_year' => 1978,
+            'name' => 'Kwakmeister',
+            'info' => 'professionel kwakkeren',
+            'institution' => '*kwak*',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => 1,
+        ],
+
+        [
+            'user_id' => 3,
+            'start_year' => 2012,
+            'name' => 'PHP',
+            'info' => 'PHP Backend Developer',
+            'institution' => 'Codegorillas',
             'created' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],

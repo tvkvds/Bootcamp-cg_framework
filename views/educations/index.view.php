@@ -1,10 +1,11 @@
 
-
 <?php require 'views/partials/header.view.php' ?>
 
     <h3>educations index</h3>
 
-  
+    <?php if ($vars['educations'] == NULL) :?>
+    <h3>You have not added an education yet.</h3>
+    <?php else :?>
     
     <ul>
     <?php foreach ($vars['educations'] as $education) : ?>
@@ -16,7 +17,8 @@
         </li>
     <?php endforeach ;?>
     </ul>
+    <?php endif; ?>
 
-    <a href=""><h3>Add new</h3></a>
+    <a href="education/<?=$education->id?>/create"><h3>Add new</h3></a>
 
 <?php require 'views/partials/footer.view.php' ?>

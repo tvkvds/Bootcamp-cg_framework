@@ -9,7 +9,7 @@ class EducationModel extends Model
 {
 
     // Name of the table
-    protected $model = "education";
+    protected $model = "educations";
 
     protected $limit;
 
