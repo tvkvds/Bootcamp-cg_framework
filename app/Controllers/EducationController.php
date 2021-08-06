@@ -95,12 +95,20 @@ class EducationController extends Controller
     public function update()
     {
         $education = $_POST; //get data from req
-
-
        
         EducationModel::load()->update($education, $education['id']);
 
         View::redirect('education');
+    }
+
+    /**
+     * Archive a user record into the database (soft delete)
+     */
+    public function destroy()
+    {
+        //id = get education id from link - helper-getidfromurl
+        //userid->delete - educationmodel-load-delete/destroy insert id
+        //direct to page - view redirect to relevant page
     }
 
 

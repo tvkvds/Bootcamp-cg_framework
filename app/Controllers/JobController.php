@@ -62,4 +62,42 @@ class JobController extends Controller
         ]);
     }
 
+    public function update()
+    {
+        $job = $_POST; //get data from req
+       
+        JobModel::load()->update($job, $job['id']);
+
+        View::redirect('job');
+    }
+
+    /**
+     * Show a form to create a new education
+     */
+    public function create()
+    {
+        return View::render('jobs/create.view', [
+            'method'    => 'POST', // set method for form
+            'action' => '/job/store', //set destination for form
+            'roles'     => RoleModel::load()->all(), //get roles for permission middleware
+        ]);
+    }
+
+    //store new education from create()
+    public function store()
+    {
+
+        $job = $_POST;  //set vars from user
+
+        $job['user_id'] = Helper::getUserIdFromSession(); //set id of user
+
+        $job['created_by'] = Helper::getUserIdFromSession(); //add id of creator
+        $job['created'] = date('Y-m-d'); // add timestamp
+
+        JobModel::load()->store($job);  //send to database
+
+        View::redirect("job"); //redirect to index page educations
+
+    }
+
 }

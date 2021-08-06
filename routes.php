@@ -88,6 +88,18 @@ $router->get('job/{id}/edit', 'App/Controllers/JobController.php@edit', [
     'edit' => Permissions::class
 ]);
 
+$router->post('job/{id}/update', 'App/Controllers/JobController.php@update', [
+    'update' => Permissions::class
+]);
+
+$router->get('job/{id}/create', 'App/Controllers/JobController.php@create', [
+    'edit' => Permissions::class
+]);
+
+$router->post('job/store', 'App/Controllers/JobController.php@store', [
+    'store' => Permissions::class
+]);
+
 
 
 

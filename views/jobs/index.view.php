@@ -22,6 +22,8 @@
         
 <?php endif;?>
 
+<a href="job/<?=$vars['user']?>/create"><h3>Add new</h3></a>
+
 
 
 <?php require 'views/partials/footer.view.php' ?>

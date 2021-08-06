@@ -108,7 +108,9 @@ class UserController extends Controller
      */
     public function destroy()
     {
-
+        //get user id from session or from link
+        //userid->delete
+        //direct to page
     }
 
 }

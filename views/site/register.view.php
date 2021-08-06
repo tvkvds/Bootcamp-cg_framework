@@ -1,3 +1,4 @@
+
 <div class="login-overlay">
     <div class="center-box register-form">
         <div class="mb-3">
@@ -46,4 +47,5 @@
     </div>
 </div>
 
-<script src="public/js/partials/register.js"></script>
+<?php require 'views/partials/footer.view.php' ?>
+
