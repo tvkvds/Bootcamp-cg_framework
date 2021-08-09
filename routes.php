@@ -119,6 +119,34 @@ $router->get('job/{id}/destroy', 'App/Controllers/JobController.php@destroy', [
 // ---   skill routes
 //
 
+$router->get('skill', 'App/Controllers/SkillController.php@index', [
+    'index' => Permissions::class
+]);
+
+$router->get('skill/{id}', 'App/Controllers/SkillController.php@show', [
+    'show' => Permissions::class
+]);
+
+$router->get('skill/{id}/edit', 'App/Controllers/SkillController.php@edit', [
+    'edit' => Permissions::class
+]);
+
+$router->post('job/{id}/update', 'App/Controllers/JobController.php@update', [
+    'update' => Permissions::class
+]);
+
+$router->get('skill/{id}/create', 'App/Controllers/SkillController.php@create', [
+    'edit' => Permissions::class
+]);
+
+$router->post('skill/store', 'App/Controllers/SkillController.php@store', [
+    'store' => Permissions::class
+]);
+
+$router->get('skill/{id}/destroy', 'App/Controllers/SkillController.php@destroy', [
+    'destroy' => Permissions::class
+]);
+
 
 
 

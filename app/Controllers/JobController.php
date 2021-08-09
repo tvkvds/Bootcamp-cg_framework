@@ -83,7 +83,7 @@ class JobController extends Controller
         ]);
     }
 
-    //store new education from create()
+    //store new job from create()
     public function store()
     {
 
