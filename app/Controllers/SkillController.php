@@ -85,7 +85,7 @@ class SkillController extends Controller
         $skill['created_by'] = Helper::getUserIdFromSession(); //add id of creator
         $skill['created'] = date('Y-m-d'); // add timestamp
 
-        SKillModel::load()->store($skill);  //send to database
+        SkillModel::load()->store($skill);  //send to database
 
         View::redirect("skill"); //redirect to index page educations
 

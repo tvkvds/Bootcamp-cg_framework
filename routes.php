@@ -28,6 +28,10 @@ $router->get('user/{id}', 'App/Controllers/UserController.php@show', [
     'show' => Permissions::class
 ]);
 
+$router->get('user/{id}/cv', 'App/Controllers/UserController.php@cv',[
+    'show' => Permissions::class
+]);
+
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
     'edit' => Permissions::class
 ]);

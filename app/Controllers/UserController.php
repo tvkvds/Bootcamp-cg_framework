@@ -8,6 +8,10 @@ use App\Models\UserModel;
 use App\Libraries\View;
 use App\Models\EducationModel;
 use App\Models\RoleModel;
+use App\Models\HobbyModel;
+use App\Models\JobModel;
+use App\Models\ProjectModel;
+use App\Models\SkillModel;
 
 class UserController extends Controller
 {
@@ -23,6 +27,27 @@ class UserController extends Controller
             'users' => $userModel->all(),
             
         ]);
+    }
+
+    public function cv()
+    {
+
+        $user_id = Helper::getUserIdFromSession();
+        $userModel = new UserModel();
+        $educationModel = new EducationModel();
+        $hobbyModel = new HobbyModel();
+        $jobModel = new JobModel();
+        $projectModel = new ProjectModel();
+        $skillModel = new SkillModel();
+        
+        View::render('users/cv.view',[
+            'user' => $userModel->get($user_id),
+            'educations' => $educationModel->getUserEducations($user_id),
+            'hobbies' => $hobbyModel->getUserHobbies($user_id),
+            'jobs' => $jobModel->getUserJobs($user_id),
+            'projects' => $projectModel->getUserProjects($user_id),
+            'skills' => $skillModel->getUserSkills($user_id),
+        ]);  
     }
 
     /**
