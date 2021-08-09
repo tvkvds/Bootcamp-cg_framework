@@ -17,24 +17,9 @@
                      <li class="nav-item">
                      <a class="nav-link" href="/contact">contact</a>
                      </li>
-                     
+                  
                      <li class="nav-item">
-                     <a class="nav-link" href="/users">users</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="/education">education</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="/job">job</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="/skill">skill</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="/hobby">hobby</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="/project">project</a>
+                     <a class="nav-link" href="/user/<?=$_SESSION['user']['uid']?>/cv">My CV</a>
                      </li>
                      <?php if (!isset($_SESSION['token'])) : ?>
                      <li class="nav-item">

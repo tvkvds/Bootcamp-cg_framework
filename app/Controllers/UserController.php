@@ -41,7 +41,9 @@ class UserController extends Controller
         $skillModel = new SkillModel();
         
         View::render('users/cv.view',[
-            'user' => $userModel->get($user_id),
+            'user' => $userModel->get($user_id, ['first_name', 'last_name', 'country',
+            'city', 'birthday', 'insertion', 'email']),
+
             'educations' => $educationModel->getUserEducations($user_id),
             'hobbies' => $hobbyModel->getUserHobbies($user_id),
             'jobs' => $jobModel->getUserJobs($user_id),
