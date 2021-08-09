@@ -30,6 +30,9 @@
                      <li class="nav-item">
                      <a class="nav-link" href="/skill">skill</a>
                      </li>
+                     <li class="nav-item">
+                     <a class="nav-link" href="/hobby">hobby</a>
+                     </li>
                      <?php if (!isset($_SESSION['token'])) : ?>
                      <li class="nav-item">
                      <a class="nav-link" aria-current="page" href="/register">register</a>

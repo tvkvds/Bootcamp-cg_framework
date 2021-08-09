@@ -131,7 +131,7 @@ $router->get('skill/{id}/edit', 'App/Controllers/SkillController.php@edit', [
     'edit' => Permissions::class
 ]);
 
-$router->post('job/{id}/update', 'App/Controllers/JobController.php@update', [
+$router->post('skill/{id}/update', 'App/Controllers/SkillController.php@update', [
     'update' => Permissions::class
 ]);
 
@@ -144,6 +144,70 @@ $router->post('skill/store', 'App/Controllers/SkillController.php@store', [
 ]);
 
 $router->get('skill/{id}/destroy', 'App/Controllers/SkillController.php@destroy', [
+    'destroy' => Permissions::class
+]);
+
+//
+// ---   hobby routes
+//
+
+$router->get('hobby', 'App/Controllers/HobbyController.php@index', [
+    'index' => Permissions::class
+]);
+
+$router->get('hobby/{id}', 'App/Controllers/HobbyController.php@show', [
+    'show' => Permissions::class
+]);
+
+$router->get('hobby/{id}/edit', 'App/Controllers/HobbyController.php@edit', [
+    'edit' => Permissions::class
+]);
+
+$router->post('hobby/{id}/update', 'App/Controllers/HobbyController.php@update', [
+    'update' => Permissions::class
+]);
+
+$router->get('hobby/{id}/create', 'App/Controllers/HobbyController.php@create', [
+    'edit' => Permissions::class
+]);
+
+$router->post('hobby/store', 'App/Controllers/HobbyController.php@store', [
+    'store' => Permissions::class
+]);
+
+$router->get('hobby/{id}/destroy', 'App/Controllers/HobbyController.php@destroy', [
+    'destroy' => Permissions::class
+]);
+
+//
+// ---   project routes
+//
+
+$router->get('project', 'App/Controllers/ProjectController.php@index', [
+    'index' => Permissions::class
+]);
+
+$router->get('project/{id}', 'App/Controllers/ProjectController.php@show', [
+    'show' => Permissions::class
+]);
+
+$router->get('project/{id}/edit', 'App/Controllers/ProjectController.php@edit', [
+    'edit' => Permissions::class
+]);
+
+$router->post('project/{id}/update', 'App/Controllers/ProjectController.php@update', [
+    'update' => Permissions::class
+]);
+
+$router->get('project/{id}/create', 'App/Controllers/ProjectController.php@create', [
+    'edit' => Permissions::class
+]);
+
+$router->post('project/store', 'App/Controllers/ProjectController.php@store', [
+    'store' => Permissions::class
+]);
+
+$router->get('project/{id}/destroy', 'App/Controllers/ProjectController.php@destroy', [
     'destroy' => Permissions::class
 ]);
 
