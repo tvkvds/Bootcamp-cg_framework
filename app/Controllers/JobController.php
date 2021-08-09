@@ -65,6 +65,7 @@ class JobController extends Controller
     public function update()
     {
         $job = $_POST; //get data from req
+        $job['updated_by'] = Helper::getUserIdFromSession();
        
         JobModel::load()->update($job, $job['id']);
 

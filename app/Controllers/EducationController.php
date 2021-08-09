@@ -82,6 +82,7 @@ class EducationController extends Controller
     public function edit()
     {
         $education = new EducationModel;
+        
 
         $education->id = Helper::getIdFromUrl('education'); //gets id of requested education
         
@@ -100,6 +101,7 @@ class EducationController extends Controller
     public function update()
     {
         $education = $_POST; //get data from req
+        $education['updated_by'] = Helper::getUserIdFromSession();
        
         EducationModel::load()->update($education, $education['id']); //mysql post to database
 

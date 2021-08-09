@@ -188,6 +188,9 @@ footer {
     border-radius: .3em;
     cursor: pointer;
 }
+.profile-top{
+    background-color: rgb(158,210,157);
+}
 
 input[type="text"], input[type="email"] {
     width: 100%;

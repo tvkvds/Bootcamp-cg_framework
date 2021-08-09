@@ -60,6 +60,7 @@ class SkillController extends Controller
     public function update()
     {
         $skill = $_POST; //get data from req
+        $skill['updated_by'] = Helper::getUserIdFromSession(); //add id of updater
        
         SkillModel::load()->update($skill, $skill['id']);
 

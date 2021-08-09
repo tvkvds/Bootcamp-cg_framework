@@ -60,6 +60,7 @@ class HobbyController extends Controller
     public function update()
     {
         $hobby = $_POST; //get data from req
+        $hobby['updated_by'] = Helper::getUserIdFromSession();
        
         HobbyModel::load()->update($hobby, $hobby['id']);
 

@@ -107,7 +107,7 @@ class UserController extends Controller
 
         // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
-        $user['created_by'] = Helper::getUserIdFromSession();
+        $user['updated_by'] = Helper::getUserIdFromSession();
         $user['created'] = date('Y-m-d');
 
         // Save the record to the database

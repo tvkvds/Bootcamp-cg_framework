@@ -60,6 +60,7 @@ class ProjectController extends Controller
     public function update()
     {
         $project = $_POST; //get data from req
+        $project['updated_by'] = Helper::getUserIdFromSession();
        
         ProjectModel::load()->update($project, $project['id']);
 
