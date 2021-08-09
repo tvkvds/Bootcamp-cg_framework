@@ -27,6 +27,9 @@
                      <li class="nav-item">
                      <a class="nav-link" href="/job">job</a>
                      </li>
+                     <li class="nav-item">
+                     <a class="nav-link" href="/skill">skill</a>
+                     </li>
                      <?php if (!isset($_SESSION['token'])) : ?>
                      <li class="nav-item">
                      <a class="nav-link" aria-current="page" href="/register">register</a>

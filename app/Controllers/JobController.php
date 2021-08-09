@@ -88,9 +88,7 @@ class JobController extends Controller
     {
 
         $job = $_POST;  //set vars from user
-
         $job['user_id'] = Helper::getUserIdFromSession(); //set id of user
-
         $job['created_by'] = Helper::getUserIdFromSession(); //add id of creator
         $job['created'] = date('Y-m-d'); // add timestamp
 
@@ -98,6 +96,18 @@ class JobController extends Controller
 
         View::redirect("job"); //redirect to index page educations
 
+    }
+
+    public function destroy()
+    {
+        
+        $id = Helper::getIdFromUrl('job'); 
+        
+        JobModel::load()->destroy($id);
+        
+        View::redirect("job",[
+            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
+        ]);
     }
 
 }

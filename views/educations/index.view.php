@@ -1,7 +1,7 @@
 
 <?php require 'views/partials/header.view.php' ?>
 
-    <h3>educations index</h3>
+    <h3>index</h3>
 
     <?php if ($vars['educations'] == NULL) :?>
     <h3>You have not added an education yet.</h3>

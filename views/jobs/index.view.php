@@ -1,11 +1,11 @@
-<?php var_dump($vars);?>
+<?php # var_dump($vars); ?>
 
 <?php require 'views/partials/header.view.php' ?>
 
-<h3> Job </h3>
+<h3> Index </h3>
 
 <?php if ($vars['jobs'] == NULL) :?>
-    <h3>You have not added an education yet.</h3>
+    <h3>You have not added a job yet.</h3>
 <?php else :?>
     <ul>
     <?php foreach ($vars['jobs'] as $job) : ?>

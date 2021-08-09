@@ -14,12 +14,15 @@
 use App\Middleware\WhenNotLoggedin;
 use App\Middleware\Permissions;
 
+//make different files for different route groups, require those in here?
 
 $router->get('admin', 'App/Controllers/AdminController.php@index', [
     'auth' => WhenNotLoggedin::class,
 ]);
 
-//user routes
+//
+// ---   user routes
+//
 
 $router->get('user/{id}', 'App/Controllers/UserController.php@show', [
     'show' => Permissions::class
@@ -47,7 +50,9 @@ $router->post('user/{id}/destroy', 'App/Controllers/UserController.php@update', 
     'update' => Permissions::class
 ]);
 
-//education routes
+//
+// ---   education routes
+//
 
 $router->get('education', 'App/Controllers/EducationController.php@index', [
     'index' => Permissions::class
@@ -74,7 +79,13 @@ $router->post('education/{id}/update', 'App/Controllers/EducationController.php@
     'update' => Permissions::class
 ]);
 
-//job routes
+$router->get('education/{id}/destroy', 'App/Controllers/EducationController.php@destroy', [
+    'destroy' => Permissions::class
+]);
+
+//
+// ---   job routes
+//
 
 $router->get('job', 'App/Controllers/JobController.php@index', [
     'index' => Permissions::class
@@ -100,10 +111,21 @@ $router->post('job/store', 'App/Controllers/JobController.php@store', [
     'store' => Permissions::class
 ]);
 
+$router->get('job/{id}/destroy', 'App/Controllers/JobController.php@destroy', [
+    'destroy' => Permissions::class
+]);
+
+//
+// ---   skill routes
+//
 
 
 
+
+
+//
 //other routes
+//
 
 $router->get('me', 'App/Controllers/ProfileController.php@index');
 

@@ -1,4 +1,4 @@
-
+<?php # var_dump($vars); ?>
 <?php require 'views/partials/header.view.php' ?>
 
 <h3> create </h3>

@@ -47,5 +47,5 @@
     </div>
 </div>
 
-<?php require 'views/partials/footer.view.php' ?>
+
 

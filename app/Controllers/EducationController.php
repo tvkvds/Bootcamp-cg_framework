@@ -24,6 +24,7 @@ class EducationController extends Controller
             
             'educations' => $education->getUserEducations($id),
             'user' => $id,
+            'roles' => RoleModel::load()->all(), 
            
         ]);
     }
@@ -33,12 +34,13 @@ class EducationController extends Controller
      */
     public function show()
     {
-        $educationId = Helper::getIdFromUrl('education');
+        $id = Helper::getIdFromUrl('education');
         
-        $education = EducationModel::load()->get($educationId);
+        $education = EducationModel::load()->get($id);
 
         View::render('educations/show.view', [
             'education' => $education, 
+            'roles'     => RoleModel::load()->all(), 
         ]);
     }
 
@@ -68,7 +70,9 @@ class EducationController extends Controller
 
         EducationModel::load()->store($education);  //send to database
 
-        View::redirect("education"); //redirect to index page educations
+        View::redirect('education',[
+            'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
+        ]);
 
     }
 
@@ -92,13 +96,16 @@ class EducationController extends Controller
         ]);
     }
 
+    //save an edited form to database
     public function update()
     {
         $education = $_POST; //get data from req
        
-        EducationModel::load()->update($education, $education['id']);
+        EducationModel::load()->update($education, $education['id']); //mysql post to database
 
-        View::redirect('education');
+        View::redirect('education',[
+            'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
+        ]);
     }
 
     /**
@@ -106,9 +113,14 @@ class EducationController extends Controller
      */
     public function destroy()
     {
-        //id = get education id from link - helper-getidfromurl
-        //userid->delete - educationmodel-load-delete/destroy insert id
+        //id = get education id from url - helper-getidfromurl
+        $id = Helper::getIdFromUrl('education'); //gets id of requested education
+        //userid->destroy - educationmodel-load-delete/destroy insert id
+        EducationModel::load()->destroy($id);
         //direct to page - view redirect to relevant page
+        View::redirect("education",[
+            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
+        ]);
     }
 
 

@@ -1,8 +1,8 @@
-<?php var_dump($vars); ?>
+<?php # var_dump($vars); ?>
 
 <?php require 'views/partials/header.view.php' ?>
 
-    <h3>jobs show</h3>
+    <h3>show</h3>
     <ul>
     <?php $job = $vars['job'];?>
     <?= $job->company ?>
@@ -10,5 +10,6 @@
     <?= $job->responsibilities ?>
     <a href="../job/<?=$job->id?>/edit">Edit</a>
     </ul>
+    <a href="../job/<?=$job->id?>/destroy">Delete</a>
 
 <?php require 'views/partials/footer.view.php' ?>
