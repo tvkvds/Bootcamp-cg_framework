@@ -29,7 +29,7 @@ $router->get('user/{id}', 'App/Controllers/UserController.php@show', [
 ]);
 
 $router->get('user/{id}/cv', 'App/Controllers/UserController.php@cv',[
-    'show' => Permissions::class
+    'cv' => WhenNotLoggedin::class
 ]);
 
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [

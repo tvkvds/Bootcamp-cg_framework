@@ -70,6 +70,10 @@ header {
     width: 150px;
     opacity: 0.6;
 }
+.profile-icon  {
+    width: 100px;
+    opacity: 0.6;
+}
 
 .register-form img {
     width: 100px;
