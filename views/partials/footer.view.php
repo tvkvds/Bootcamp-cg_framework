@@ -1,4 +1,4 @@
-<footer class="p-5 d-flex justify-content-center">
+<footer class="p-5 d-flex justify-content-center mt-auto py-3 ">
     <div class="container row">
 <?php # var_dump($_SESSION);?>
 

@@ -42,7 +42,7 @@ class UserController extends Controller
         
         View::render('users/cv.view',[
             'user' => $userModel->get($user_id, ['first_name', 'last_name', 'country',
-            'city', 'birthday', 'insertion', 'email']),
+            'city', 'birthday', 'insertion', 'email', 'id']),
 
             'educations' => $educationModel->getUserEducations($user_id),
             'hobbies' => $hobbyModel->getUserHobbies($user_id),
