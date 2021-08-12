@@ -35,7 +35,7 @@
                 
                 
             <?php endforeach;?>
-            <div class="row px-4 pt-2 pb-4  d-flex justify-content-center">
+            <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew">
             <a href="/job/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new job</a>
             </div>
     </div>

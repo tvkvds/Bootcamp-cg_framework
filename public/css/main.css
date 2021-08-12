@@ -221,4 +221,10 @@ input[type="text"], input[type="email"] {
 .educations {
     background-color: #d4d4d448;
 }
+.projects {
+    background-color: #d4d4d448;
+}
 
+.addnew{
+    background-color: rgba(158, 210, 157, 0.445)
+}

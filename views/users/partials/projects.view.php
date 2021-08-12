@@ -1,10 +1,10 @@
-<div class="row profile-top px-4d-flex justify-content-center">
+<div class="row profile-top px-4 mb-4 d-flex justify-content-center">
     <a name="projects"><h4>Projects</h4></a>
 </div>
-<div class="px-4 mt-4row d-flex justify-content-left">
+<div class="px-4 mt-4row d-flex justify-content-center">
     
     <?php foreach ($projects as $project) :?>
-        <div class="col-5">
+        <div class="col-5 mx-5 projects" >
         <?php if ($project->live === '0') :?>
                        
             <div class="row px-4 pt-4 pb-2  d-flex justify-content-center">
@@ -24,14 +24,20 @@
         </div>
         
 
-        <div class="row px-4 pb-4  d-flex justify-content-center">
+        <div class="row px-4 py-2 d-flex justify-content-center">
             <?php if ($_SESSION['user']['uid'] == $project->user_id) :?>
                 <a href="/project/<?=$project->id?>/edit"><button  class="btn">Edit</button></a>
                 <a href="/project/<?=$project->id?>/destroy"><button  class="btn">Delete</button></a>
             <?php endif;?>
         </div>
+
+
                         
         </div>   
     <?php endforeach;?>
     
+    
 </div>
+<div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew">
+        <a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new project</a>
+        </div>

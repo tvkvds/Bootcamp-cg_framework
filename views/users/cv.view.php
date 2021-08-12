@@ -11,6 +11,7 @@
         <?php require 'views/users/partials/experience.view.php' ?>
         <?php require 'views/users/partials/education.view.php' ?>
         <?php require 'views/users/partials/skill.view.php' ?>
+        <?php require 'views/users/partials/hobby.view.php' ?>
 
     </div>
 
