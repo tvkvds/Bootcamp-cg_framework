@@ -1,6 +1,8 @@
 <?php require 'views/partials/header.view.php' ?>
 
-<h3> edit </h3>
+<div class="d-flex justify-content-center my-4">
+<h3> Edit education </h3>
+</div>
 
 <?php require 'views/educations/partials/form.view.php' ?>
 

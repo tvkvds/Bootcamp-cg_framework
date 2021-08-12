@@ -1,10 +1,10 @@
 <div class="row profile-top px-4 mb-4 d-flex justify-content-center">
     <a href="/project" name="projects"><h4>Projects</h4></a>
 </div>
-<div class="px-4 mt-4row d-flex justify-content-center">
+<div class="px-4 mt-4 row d-flex justify-content-center">
     
     <?php foreach ($projects as $project) :?>
-        <div class="col-5 mx-5 projects" >
+        <div class="col-5 m-2 projects" >
         <?php if ($project->live === '0') :?>
                        
             <div class="row px-4 pt-4 pb-2  d-flex justify-content-center">
@@ -39,6 +39,6 @@
     
 </div>
 
-<div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew">
+<div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
         <a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new project</a>
         </div>

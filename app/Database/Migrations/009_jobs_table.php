@@ -37,9 +37,25 @@ return [
                 'user_id' => 1,
                 'start_year' => 2012,
                 'role' =>  'function',
-                'company' =>  'company',
+                'company' =>  'company fuga fuga atque occaecati omnis voluptatem rem quisquam sapiente aliquam ea et impedit accusamus saepe harum qui dolores quos est',
                 'created' =>  date('Y-m-d H:i:s'),
                 'created_by' =>  1,
+            ],
+            [
+                'user_id' => 4,
+                'start_year' => 2019,
+                'role' =>  'Professioneel koekenbakker',
+                'company' =>  'Rue savaron',
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  4,
+            ],
+            [
+                'user_id' => 4,
+                'start_year' => 2021,
+                'role' =>  'Sous-chef',
+                'company' =>  'Flanagans',
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  4,
             ],
             
         ]

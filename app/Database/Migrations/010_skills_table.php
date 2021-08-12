@@ -10,7 +10,7 @@ return [
         `user_id` int NOT NULL,
         `skill` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-        `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        `category` set('coding', 'design', 'soft') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'coding',
         `in_progress` tinyInt(1) DEFAULT NULL,
         `created` timestamp NOT NULL,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -32,28 +32,31 @@ return [
         'type' => 'array',
         'data' => [
             [
-                'user_id' => 1, #int NOT NULL,
-                'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'category' => 'category', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'created' => date('Y-m-d H:i:s'), #timestamp NOT NULL,
-                'created_by' => 1 #int(11) NOT NULL,
+                'user_id' => 4, 
+                'skill' => 'name skill', 
+                'description' => 'description skill velit modi possimus officiis nesciunt quos enim aut eum error sit consectetur quod repudiandae autem voluptate aut veniam dolores quae', 
+                'category' => 'soft', 
+                'created' => date('Y-m-d H:i:s'),
+                'in_progress' => 1,
+                'created_by' => 1 
             ],
             [
-                'user_id' => 2, #int NOT NULL,
-                'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'category' => 'category', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'created' => date('Y-m-d H:i:s'), #timestamp NOT NULL,
-                'created_by' => 1 #int(11) NOT NULL,
+                'user_id' => 4, 
+                'skill' => 'name skill', 
+                'description' => 'description skill velit modi possimus officiis nesciunt quos enim aut eum error sit consectetur quod repudiandae autem voluptate aut veniam dolores quae', 
+                'category' => 'soft', 
+                'created' => date('Y-m-d H:i:s'),
+                'in_progress' => 1,
+                'created_by' => 1 
             ],
             [
-                'user_id' => 3, #int NOT NULL,
-                'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'category' => 'category', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                'created' => date('Y-m-d H:i:s'), #timestamp NOT NULL,
-                'created_by' => 1 #int(11) NOT NULL,
+                'user_id' => 4, 
+                'skill' => 'name skill', 
+                'description' => 'description skill velit modi possimus officiis nesciunt quos enim aut eum error sit consectetur quod repudiandae autem voluptate aut veniam dolores quae', 
+                'category' => 'soft', 
+                'created' => date('Y-m-d H:i:s'),
+                'in_progress' => 1,
+                'created_by' => 1 
             ],
         ],
     ],
@@ -63,12 +66,12 @@ return [
 Minimum data to make new row
 
         [
-        'user_id' => 1, #int NOT NULL,
-        'skill' => 'skill', # varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-        'description' => 'description', #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-        'category' => 'category' #varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-        'created' => date('Y-m-d H:i:s') #timestamp NOT NULL,
-        'created_by' => 1 #int(11) NOT NULL,
+        'user_id' => 1, 
+        'skill' => 'skill', 
+        'description' => 'description', #
+        'category' => 'category' 
+        'created' => date('Y-m-d H:i:s') 
+        'created_by' => 1 
         ],
 
 

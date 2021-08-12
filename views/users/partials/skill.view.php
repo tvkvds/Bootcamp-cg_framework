@@ -32,7 +32,7 @@
             
                 
         <?php endforeach;?>
-        <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew">
+        <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
         <a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new skill</a>
         </div>
     </div>

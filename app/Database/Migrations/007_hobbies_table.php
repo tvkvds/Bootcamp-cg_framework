@@ -30,7 +30,7 @@ return [
         'type' => 'array',
         'data' => [
             [
-            'user_id' => 1,
+            'user_id' => 4,
             'hobby' => 'Olifanten schieten',
             'description' => 'Alleen als het nieuwe maan is',
             'created' => date('Y-m-d H:i:s'),
@@ -38,7 +38,7 @@ return [
         ],
 
         [
-            'user_id' => 2,
+            'user_id' => 4,
             'hobby' => 'Crepes maken',
             'description' => 'Van crepespapier',
             'created' => date('Y-m-d H:i:s'),
@@ -46,7 +46,7 @@ return [
         ],
 
         [
-            'user_id' => 3,
+            'user_id' => 4,
             'hobby' => 'MongoDB Models maken',
             'description' => 'Met mongoose',
             'created' => date('Y-m-d H:i:s'),

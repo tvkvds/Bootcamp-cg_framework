@@ -45,14 +45,14 @@ return [
             'user_id' => 1,
             'start_year' => 2001,
             'name' => 'Stucadoor',
-            'info' => 'Aan een stuk door',
+            'info' => 'Een stukadoor, stuc-, plak- of pleisterwerker is een vakman die een afwerklaag van stucwerk aanbrengt op muren en plafonds in het interieur van een gebouw.',
             'institution' => 'Deur de deur deur',
             'created' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],
 
         [
-            'user_id' => 2,
+            'user_id' => 4,
             'start_year' => 2001,
             'name' => 'Stucadoor',
             'info' => 'Aan een stuk door',
@@ -82,7 +82,7 @@ return [
         ],
 
         [
-            'user_id' => 3,
+            'user_id' => 4,
             'start_year' => 1978,
             'name' => 'Kwakmeister',
             'info' => 'professionel kwakkeren',

@@ -28,7 +28,7 @@
 <div class="col-2 ">
 <h6 class="row">Skills</h6>
 <a href="/skill" class='row'>My skills</a>
-<a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>New Job</a>
+<a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>New skill</a>
 </div>
 
 <div class="col-2 ">
