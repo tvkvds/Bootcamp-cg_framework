@@ -1,5 +1,6 @@
+
 <div class="row profile-top px-4  d-flex justify-content-center">
-    <a name="projects"><h4>Education</h4></a>
+    <a href="/education" name="projects"><h4>Education</h4></a>
 </div>
 <div class="px-4 mt-4  row d-flex justify-content-center">
     <div class="col">
@@ -26,7 +27,7 @@
                         </div>
                     </div>
                     <?php if ($_SESSION['user']['uid'] == $education->user_id) :?>
-                    <div class="row row px-4 pt-2 mt-2 d-flex justify-content-center">
+                    <div class="row px-4 pt-2 mt-2 d-flex justify-content-center editdelete">
                     <a href="/education/<?=$education->id?>/edit"><button  class="btn">Edit</button></a>
                     <a href="/education/<?=$education->id?>/destroy"><button  class="btn">Delete</button></a>
                     </div>

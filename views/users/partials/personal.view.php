@@ -36,7 +36,7 @@
 </div>
   
 <?php if ($_SESSION['user']['uid'] == $user->id) :?>
-<div class="row px-4  d-flex justify-content-center">
+<div class="row px-4  d-flex justify-content-center editdelete">
     <a href="/user/<?=$_SESSION['user']['uid']?>/edit"><button  class="btn">Edit</button></a>
 </div>
 <?php endif;?>

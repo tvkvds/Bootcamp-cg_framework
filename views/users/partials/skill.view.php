@@ -1,5 +1,5 @@
 <div class="row profile-top px-4  d-flex justify-content-center">
-    <a name="projects"><h4>Skill</h4></a>
+    <a href="/skill" name="projects"><h4>Skill</h4></a>
 </div>
 <div class="px-4 mt-4  row d-flex justify-content-center">
     <div class="col">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <?php if ($_SESSION['user']['uid'] == $skill->user_id) :?>
-                    <div class="row row px-4 pt-2 mt-2 d-flex justify-content-center">
+                    <div class="row row px-4 pt-2 mt-2 d-flex justify-content-center editdelete">
                     <a href="/skill/<?=$skill->id?>/edit"><button  class="btn">Edit</button></a>
                     <a href="/skill/<?=$skill->id?>/destroy"><button  class="btn">Delete</button></a>
                     </div>

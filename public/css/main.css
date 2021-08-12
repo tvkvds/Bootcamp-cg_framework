@@ -74,7 +74,7 @@ header {
 }
 .profile-icon  {
     width: 100px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .project-icon  {
     width: 200px;
@@ -83,7 +83,7 @@ header {
 
 .github-icon  {
     width: 100px;
-    opacity: 0.6;
+    opacity: 0.3;
 }
 
 .register-form img {
@@ -223,8 +223,24 @@ input[type="text"], input[type="email"] {
 }
 .projects {
     background-color: #d4d4d448;
+    
 }
 
 .addnew{
+    background-color: rgba(158, 210, 157, 0.445)
+}
+
+
+.addnew:hover { 
+    transform: scale(1.02); 
+    -webkit-transition: transform 0.2s ease-in-out;
+    }
+    
+.editdelete:hover{
+    transform: scale(1.02); 
+    -webkit-transition: transform 0.2s ease-in-out;
+}
+
+.form-button{
     background-color: rgba(158, 210, 157, 0.445)
 }

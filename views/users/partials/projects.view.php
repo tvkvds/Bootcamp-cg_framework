@@ -1,5 +1,5 @@
 <div class="row profile-top px-4 mb-4 d-flex justify-content-center">
-    <a name="projects"><h4>Projects</h4></a>
+    <a href="/project" name="projects"><h4>Projects</h4></a>
 </div>
 <div class="px-4 mt-4row d-flex justify-content-center">
     
@@ -24,7 +24,7 @@
         </div>
         
 
-        <div class="row px-4 py-2 d-flex justify-content-center">
+        <div class="row px-4 py-2 d-flex justify-content-center editdelete">
             <?php if ($_SESSION['user']['uid'] == $project->user_id) :?>
                 <a href="/project/<?=$project->id?>/edit"><button  class="btn">Edit</button></a>
                 <a href="/project/<?=$project->id?>/destroy"><button  class="btn">Delete</button></a>
@@ -38,6 +38,7 @@
     
     
 </div>
+
 <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew">
         <a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new project</a>
         </div>
