@@ -20,18 +20,19 @@
                             <?= (isset($job->end_year) ? $job->end_year : '')?>
                         </div>
                     </div>
-                    <div class="row px-4 pb-2 ">
+                    <div class="row px-4 pt-2 mt-2 ">
                         <div class='col'>
                             <?= (isset($job->responsibilities) ? $job->responsibilities : '')?>
                         </div>
                     </div>
-                </div>
-                <?php if ($_SESSION['user']['uid'] == $job->user_id) :?>
-                <div class="row px-4 pt-2 pb-4  d-flex justify-content-center">
+                    <?php if ($_SESSION['user']['uid'] == $job->user_id) :?>
+                <div class="row px-4 pt-2 mt-2 d-flex justify-content-center">
                     <a href="/job/<?=$job->id?>/edit"><button  class="btn">Edit</button></a>
                     <a href="/job/<?=$_job->id?>/destroy"><button  class="btn">Delete</button></a>
                 </div>
                 <?php endif;?>
+                </div>
+                
                 
             <?php endforeach;?>
             <div class="row px-4 pt-2 pb-4  d-flex justify-content-center">
