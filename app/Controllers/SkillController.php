@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
-use App\Libraries\MySql;
 use App\Models\SkillModel;
 use App\Libraries\View;
 use App\Models\RoleModel;
@@ -42,25 +41,22 @@ class SkillController extends Controller
     public function edit()
     {
         $skill = new SkillModel;
-
-        $skill->id = Helper::getIdFromUrl('skill'); //gets id of requested education
+        $skill->id = Helper::getIdFromUrl('skill'); 
         
-        $skill = SkillModel::load()->get($skill->id); //gets one education record
+        $skill = SkillModel::load()->get($skill->id); 
 
         return View::render('skills/edit.view', [
-            'method'    => 'POST',  //set method for the form
-            'action'    => '/skill/' . $skill->id . '/update', //set where the form must be submitted to
-            'skill' => $skill, //set data being passed to page
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-            ''
+            'method'    => 'POST',  
+            'action'    => '/skill/' . $skill->id . '/update', 
+            'skill' => $skill, 
         ]);
     }
 
     //update skill record with data from edit()
     public function update()
     {
-        $skill = $_POST; //get data from req
-        $skill['updated_by'] = Helper::getUserIdFromSession(); //add id of updater
+        $skill = $_POST; 
+        $skill['updated_by'] = Helper::getUserIdFromSession(); 
        
         SkillModel::load()->update($skill, $skill['id']);
 
@@ -71,9 +67,9 @@ class SkillController extends Controller
     public function create()
     {
         return View::render('skills/create.view', [
-            'method'    => 'POST', // set method for form
-            'action' => '/skill/store', //set destination for form
-            'roles'     => RoleModel::load()->all(), //get roles for permission middleware
+            'method'    => 'POST',
+            'action' => '/skill/store', 
+            
         ]);
     }
 
@@ -81,14 +77,14 @@ class SkillController extends Controller
     public function store()
     {
 
-        $skill = $_POST;  //set vars from user
-        $skill['user_id'] = Helper::getUserIdFromSession(); //set id of user
-        $skill['created_by'] = Helper::getUserIdFromSession(); //add id of creator
-        $skill['created'] = date('Y-m-d'); // add timestamp
+        $skill = $_POST;  
+        $skill['user_id'] = Helper::getUserIdFromSession(); 
+        $skill['created_by'] = Helper::getUserIdFromSession(); 
+        $skill['created'] = date('Y-m-d'); 
 
-        SkillModel::load()->store($skill);  //send to database
+        SkillModel::load()->store($skill);  
 
-        return View::redirect("skill"); //redirect to index page educations
+        return View::redirect("skill"); 
 
     }
 
@@ -100,8 +96,6 @@ class SkillController extends Controller
         
         SkillModel::load()->destroy($id);
         
-        return View::redirect("skill",[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-        ]);
+        return View::redirect("skill");
     }
 }

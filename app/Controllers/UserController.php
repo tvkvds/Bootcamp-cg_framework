@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
-use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Models\EducationModel;
@@ -34,6 +33,7 @@ class UserController extends Controller
     public function cv()
     {
 
+        //set up data (from all needed tables)
         $user_id = Helper::getIdFromUrl('user');
         $userModel = new UserModel();
         $educationModel = new EducationModel();
@@ -107,16 +107,15 @@ class UserController extends Controller
      */
     public function update()
     {
-        // Save post data in $user var
+    
         $user = $_POST;
-
-        // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
         $user['updated_by'] = Helper::getUserIdFromSession();
         $user['created'] = date('Y-m-d');
 
         // Save the record to the database
         UserModel::load()->update($user, Helper::getUserIdFromSession());
+
         return view::redirect('/');
     }
 
@@ -128,11 +127,10 @@ class UserController extends Controller
         $userId = Helper::getIdFromUrl('user');
         
         $user = UserModel::load()->get($userId);
-        #$education = EducationModel::load()->getUserEducations($userId);
-
+        
         return View::render('users/show.view', [
             'user' => $user, 
-            #'educations' => $education,
+           
         ]);
     }
 
@@ -141,6 +139,8 @@ class UserController extends Controller
      */
     public function destroy()
     {
+        //build a "are you sure you want to delete" popup/page
+
         //get user id from session
         //userid->delete
         //direct to page

@@ -44,22 +44,20 @@ class JobController extends Controller
     }
 
     /**
-     * Show a form to edit a education record
+     * Show a form to edit a job record
      */
     public function edit()
     {
         $job = new JobModel;
-
-        $job->id = Helper::getIdFromUrl('job'); //gets id of requested education
+        $job->id = Helper::getIdFromUrl('job'); 
         
-        $job = JobModel::load()->get($job->id); //gets one education record
+        $job = JobModel::load()->get($job->id); 
 
         return View::render('jobs/edit.view', [
-            'method'    => 'POST',  //set method for the form
-            'action'    => '/job/' . $job->id . '/update', //set where the form must be submitted to
-            'job' => $job, //set data being passed to page
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-            ''
+            'method'    => 'POST', 
+            'action'    => '/job/' . $job->id . '/update', 
+            'job' => $job, 
+            
         ]);
     }
 
@@ -67,10 +65,9 @@ class JobController extends Controller
     {
             
             $job = $_POST; //get data from req
-            
             $job['updated_by'] = Helper::getUserIdFromSession();
            
-             JobModel::load()->update($job, $job['id']);
+            JobModel::load()->update($job, $job['id']);
             
             return View::redirect('job');
            
@@ -82,9 +79,9 @@ class JobController extends Controller
     public function create()
     {
         return View::render('jobs/create.view', [
-            'method'    => 'POST', // set method for form
-            'action' => '/job/store', //set destination for form
-            'roles'     => RoleModel::load()->all(), //get roles for permission middleware
+            'method'    => 'POST', 
+            'action' => '/job/store', 
+            
         ]);
     }
 
@@ -112,7 +109,7 @@ class JobController extends Controller
         JobModel::load()->destroy($id);
         
         return View::redirect("job",[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
+           
         ]);
     }
 

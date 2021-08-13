@@ -3,13 +3,13 @@
     <h3>users index</h3>
     
     <ul>
-    <?php foreach ($vars['users'] as $user) : ?>
-        <li>
-            <a href="user/<?= $user->id?>/cv">
-            <?= $user->first_name . ' ' . $user->last_name?>
-            </a>
-        </li>
-    <?php endforeach ;?>
+        <?php foreach ($vars['users'] as $user) : ?>
+            <li>
+                <a href="user/<?= $user->id?>/cv">
+                    <?= $user->first_name . ' ' . $user->last_name?>
+                </a>
+            </li>
+        <?php endforeach ;?>
     </ul>
 
 <?php require 'views/partials/footer.view.php' ?>

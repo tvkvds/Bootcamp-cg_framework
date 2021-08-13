@@ -46,7 +46,7 @@
         <input type="hidden" name="id" value="<?= isset($vars['skill']) ? 
         $vars['skill']->id : '' ?>">
 
-    <input type="submit" value="Save skill" class="form-button btn">
+        <input type="submit" value="Save skill" class="form-button btn">
 
     </div>
 

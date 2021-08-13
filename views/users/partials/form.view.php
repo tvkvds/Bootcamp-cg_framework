@@ -13,6 +13,7 @@
             <div class="col-md-6">
                 <input type="text" name="last_name" placeholder="Achternaam" value="<?= isset($vars['user']) ? $vars['user']->last_name : '' ?>">
             </div>
+            
         </div>
 
         <div class="row mb-3">

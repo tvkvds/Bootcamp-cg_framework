@@ -3,7 +3,7 @@
 <?php require 'views/partials/header.view.php' ?>
 
 <div class="d-flex justify-content-center my-4">
-<h3> Edit skill </h3>
+    <h3> Edit skill </h3>
 </div>
 
 <?php require 'views/skills/partials/form.view.php' ?>

@@ -3,10 +3,9 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
-use App\Libraries\MySql;
 use App\Models\ProjectModel;
 use App\Libraries\View;
-use App\Models\RoleModel;
+
 
 class ProjectController extends Controller
 {
@@ -15,7 +14,7 @@ class ProjectController extends Controller
     {
         
         $project = new ProjectModel();
-        $id = Helper::getUserIdFromSession(); //set user id 
+        $id = Helper::getUserIdFromSession();
 
         return View::render('projects/index.view', [
             
@@ -41,26 +40,25 @@ class ProjectController extends Controller
     //form for editing one project record
     public function edit()
     {
+        //set up data
         $project = new ProjectModel;
-
-        $project->id = Helper::getIdFromUrl('project'); //gets id of requested education
+        $project->id = Helper::getIdFromUrl('project'); 
         
-        $project = ProjectModel::load()->get($project->id); //gets one education record
+        //interact with database
+        $project = ProjectModel::load()->get($project->id); 
 
         return View::render('projects/edit.view', [
-            'method'    => 'POST',  //set method for the form
-            'action'    => '/project/' . $project->id . '/update', //set where the form must be submitted to
-            'project' => $project, //set data being passed to page
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-            ''
+            'method'    => 'POST',  
+            'action'    => '/project/' . $project->id . '/update', 
+            'project' => $project, 
+            
         ]);
     }
 
     //update project record with data from edit()
     public function update()
     {
-        $project = $_POST; //get data from req
-        
+        $project = $_POST; 
         $project['updated_by'] = Helper::getUserIdFromSession();
        
         ProjectModel::load()->update($project, $project['id']);
@@ -74,7 +72,6 @@ class ProjectController extends Controller
         return View::render('projects/create.view', [
             'method'    => 'POST', // set method for form
             'action' => '/project/store', //set destination for form
-            'roles'     => RoleModel::load()->all(), //get roles for permission middleware
         ]);
     }
 
@@ -82,14 +79,14 @@ class ProjectController extends Controller
     public function store()
     {
 
-        $project = $_POST;  //set vars from user
-        $project['user_id'] = Helper::getUserIdFromSession(); //set id of user
-        $project['created_by'] = Helper::getUserIdFromSession(); //add id of creator
-        $project['created'] = date('Y-m-d'); // add timestamp
+        $project = $_POST;  
+        $project['user_id'] = Helper::getUserIdFromSession(); 
+        $project['created_by'] = Helper::getUserIdFromSession(); 
+        $project['created'] = date('Y-m-d'); 
 
-        ProjectModel::load()->store($project);  //send to database
+        ProjectModel::load()->store($project);  
 
-        return View::redirect("project"); //redirect to index page educations
+        return View::redirect("project"); 
 
     }
 
@@ -101,8 +98,6 @@ class ProjectController extends Controller
         
         ProjectModel::load()->destroy($id);
         
-        return View::redirect("project",[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-        ]);
+        return View::redirect("project");
     }
 }

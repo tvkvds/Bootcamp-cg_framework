@@ -3,10 +3,8 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
-use App\Libraries\MySql;
 use App\Models\EducationModel;
 use App\Libraries\View;
-use App\Models\RoleModel;
 
 class EducationController extends Controller
 {
@@ -24,7 +22,6 @@ class EducationController extends Controller
             
             'educations' => $education->getUserEducations($id),
             'user' => $id,
-            'roles' => RoleModel::load()->all(), 
            
         ]);
     }
@@ -40,7 +37,7 @@ class EducationController extends Controller
 
         return View::render('educations/show.view', [
             'education' => $education, 
-            'roles'     => RoleModel::load()->all(), 
+            
         ]);
     }
 
@@ -52,9 +49,9 @@ class EducationController extends Controller
     {
 
         return View::render('educations/create.view', [
-            'method'    => 'POST', // set method for form
-            'action' => '/education/store', //set destination for form
-            'roles'     => RoleModel::load()->all(), //get roles for permission middleware
+            'method'    => 'POST', 
+            'action' => '/education/store', 
+            
         ]);
     }
 
@@ -62,20 +59,21 @@ class EducationController extends Controller
     public function store()
     {
 
-        $education = $_POST;  //set vars from user
+        //set up data
+        $education = $_POST;  
+        $education['user_id'] = Helper::getUserIdFromSession(); 
+        $education['created_by'] = Helper::getUserIdFromSession(); 
+        $education['created'] = date('Y-m-d'); 
 
-        $education['user_id'] = Helper::getUserIdFromSession(); //set id of user
+        //store to database
+        EducationModel::load()->store($education);  
 
-        $education['created_by'] = Helper::getUserIdFromSession(); //add id of creator
-        $education['created'] = date('Y-m-d'); // add timestamp
-
-        EducationModel::load()->store($education);  //send to database
-
+        //add flash message
         $msg = new \Plasticbrain\FlashMessages\FlashMessages();
         $msg->info('New education succesfully created!');
 
         return View::redirect('education',[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
+            
         ]);
 
     }
@@ -86,34 +84,29 @@ class EducationController extends Controller
     public function edit()
     {
         $education = new EducationModel;
-        
-
-        $education->id = Helper::getIdFromUrl('education'); //gets id of requested education
-        
-        $education = EducationModel::load()->get($education->id); //gets one education record
+        $education->id = Helper::getIdFromUrl('education'); 
+        $education = EducationModel::load()->get($education->id); 
 
         return View::render('educations/edit.view', [
-            'method'    => 'POST',  //set method for the form
-            'action'    => '/education/' . $education->id . '/update', //set where the form must be submitted to
-            'education' => $education, //set data being passed to page
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-            ''
+            'method'    => 'POST',  
+            'action'    => '/education/' . $education->id . '/update', 
+            'education' => $education, 
+            
         ]);
     }
 
     //save an edited form to database
     public function update()
     {
-        $education = $_POST; //get data from req
+        $education = $_POST; 
         $education['updated_by'] = Helper::getUserIdFromSession();
-       
-        EducationModel::load()->update($education, $education['id']); //mysql post to database
+        EducationModel::load()->update($education, $education['id']); 
 
         $msg = new \Plasticbrain\FlashMessages\FlashMessages();
         $msg->info('Your education has been edited!');
 
         return View::redirect('education',[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
+            
         ]);
     }
 
@@ -122,14 +115,13 @@ class EducationController extends Controller
      */
     public function destroy()
     {
-        //id = get education id from url - helper-getidfromurl
-        $id = Helper::getIdFromUrl('education'); //gets id of requested education
-        //userid->destroy - educationmodel-load-delete/destroy insert id
+        
+        $id = Helper::getIdFromUrl('education'); 
+        
         EducationModel::load()->destroy($id);
-        //direct to page - view redirect to relevant page
         
         return View::redirect("education",[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
+            
         ]);
     }
 
