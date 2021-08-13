@@ -17,7 +17,7 @@ class SkillController extends Controller
         $skill = new SkillModel();
         $id = Helper::getUserIdFromSession(); //set user id 
 
-        View::render('skills/index.view', [
+        return View::render('skills/index.view', [
             
             'skills' => $skill->getUserSkills($id),
             'user' => $id,
@@ -32,7 +32,7 @@ class SkillController extends Controller
         
         $skill = SkillModel::load()->get($skillId);
 
-        View::render('skills/show.view', [
+        return View::render('skills/show.view', [
             'skill' => $skill, 
         ]);
     }
@@ -64,7 +64,7 @@ class SkillController extends Controller
        
         SkillModel::load()->update($skill, $skill['id']);
 
-        View::redirect('skill');
+        return View::redirect('skill');
     }
 
     //form to create new skill record
@@ -88,7 +88,7 @@ class SkillController extends Controller
 
         SkillModel::load()->store($skill);  //send to database
 
-        View::redirect("skill"); //redirect to index page educations
+        return View::redirect("skill"); //redirect to index page educations
 
     }
 
@@ -100,7 +100,7 @@ class SkillController extends Controller
         
         SkillModel::load()->destroy($id);
         
-        View::redirect("skill",[
+        return View::redirect("skill",[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
         ]);
     }

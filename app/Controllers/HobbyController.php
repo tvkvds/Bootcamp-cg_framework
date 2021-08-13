@@ -64,7 +64,7 @@ class HobbyController extends Controller
        
         HobbyModel::load()->update($hobby, $hobby['id']);
 
-        View::redirect('hobby');
+        return View::redirect('hobby');
     }
 
     //show form to create new hobby
@@ -88,7 +88,7 @@ class HobbyController extends Controller
 
         HobbyModel::load()->store($hobby);  //send to database
 
-        View::redirect("hobby"); //redirect to index page educations
+        return View::redirect("hobby"); //redirect to index page educations
 
     }
 
@@ -99,7 +99,7 @@ class HobbyController extends Controller
         
         HobbyModel::load()->destroy($id);
         
-        View::redirect("hobby",[
+        return View::redirect("hobby",[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
         ]);
     }

@@ -7,7 +7,7 @@
 
             <div class="col-md-6">
                 <input type="text" name="role" placeholder="Role" 
-                value="<?= isset($vars['job']) ? $vars['job']->role : '' ?>">
+                value="<?= isset($vars['job']) ? $vars['job']->role : '' ?>" required>
             </div>
 
         </div>
@@ -16,7 +16,7 @@
 
             <div class="col-md-6">
                 <input type="text" name="company" placeholder="At company" 
-                value="<?= isset($vars['job']) ? $vars['job']->company : '' ?>">
+                value="<?= isset($vars['job']) ? $vars['job']->company : '' ?>" required>
             </div>
 
         </div>
@@ -25,7 +25,7 @@
 
             <div class="col-md-6">
                 <input type="text" name="responsibilities" placeholder="Responsibilities" 
-                value="<?= isset($vars['job']) ? $vars['job']->responsibilities : '' ?>">
+                value="<?= isset($vars['job']) ? $vars['job']->responsibilities : '' ?>" required>
             </div>
 
         </div>
@@ -34,7 +34,7 @@
 
             <div class="col-md-3 mb-3">
                 <input type="text" name="start_year" placeholder="Started in" 
-                value="<?= isset($vars['job']) ? $vars['job']->start_year : '' ?>">
+                value="<?= isset($vars['job']) ? $vars['job']->start_year : '' ?>" required>
             </div>
 
             <div class="col-md-3">

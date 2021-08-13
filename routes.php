@@ -236,3 +236,5 @@ $router->get('contact', 'App/Controllers/ContactController.php@index');
 
 $router->get('register', 'App/Controllers/RegisterController.php@index');
 $router->post('register', 'App/Controllers/RegisterController.php@store');
+
+$router->get('oops', 'App/Controllers/RegisterController.php@showException');

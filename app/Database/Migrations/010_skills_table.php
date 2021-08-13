@@ -33,26 +33,35 @@ return [
         'data' => [
             [
                 'user_id' => 4, 
-                'skill' => 'name skill', 
-                'description' => 'description skill velit modi possimus officiis nesciunt quos enim aut eum error sit consectetur quod repudiandae autem voluptate aut veniam dolores quae', 
-                'category' => 'soft', 
+                'skill' => 'HTML', 
+                'description' => 'The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser.', 
+                'category' => 'coding', 
                 'created' => date('Y-m-d H:i:s'),
                 'in_progress' => 1,
                 'created_by' => 1 
             ],
             [
                 'user_id' => 4, 
-                'skill' => 'name skill', 
-                'description' => 'description skill velit modi possimus officiis nesciunt quos enim aut eum error sit consectetur quod repudiandae autem voluptate aut veniam dolores quae', 
-                'category' => 'soft', 
+                'skill' => 'JS', 
+                'description' => 'JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.', 
+                'category' => 'coding', 
                 'created' => date('Y-m-d H:i:s'),
                 'in_progress' => 1,
                 'created_by' => 1 
             ],
             [
                 'user_id' => 4, 
-                'skill' => 'name skill', 
-                'description' => 'description skill velit modi possimus officiis nesciunt quos enim aut eum error sit consectetur quod repudiandae autem voluptate aut veniam dolores quae', 
+                'skill' => 'Adobe XD', 
+                'description' => 'Adobe XD is a vector-based user experience design tool for web apps and mobile apps, developed and published by Adobe Inc.', 
+                'category' => 'design', 
+                'created' => date('Y-m-d H:i:s'),
+                'in_progress' => 1,
+                'created_by' => 1 
+            ],
+            [
+                'user_id' => 4, 
+                'skill' => 'Expectation management', 
+                'description' => 'Overall, expectation management is highly dependent on your communication skills.', 
                 'category' => 'soft', 
                 'created' => date('Y-m-d H:i:s'),
                 'in_progress' => 1,

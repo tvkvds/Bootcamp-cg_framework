@@ -23,8 +23,10 @@ class UserController extends Controller
     {
         $userModel = new UserModel();
 
-        View::render('users/index.view', [
-            'users' => $userModel->all(),
+        return View::render('users/index.view', [
+            //exclude password from being passed to the view
+            'users' => $userModel->all(['first_name', 'last_name', 'country',
+            'city', 'birthday', 'insertion', 'email', 'id']),
             
         ]);
     }
@@ -40,10 +42,10 @@ class UserController extends Controller
         $projectModel = new ProjectModel();
         $skillModel = new SkillModel();
         
-        View::render('users/cv.view',[
+        return View::render('users/cv.view',[
+            //exclude password from being passed to the view
             'user' => $userModel->get($user_id, ['first_name', 'last_name', 'country',
             'city', 'birthday', 'insertion', 'email', 'id']),
-
             'educations' => $educationModel->getUserEducations($user_id),
             'hobbies' => $hobbyModel->getUserHobbies($user_id),
             'jobs' => $jobModel->getUserJobs($user_id),
@@ -78,6 +80,7 @@ class UserController extends Controller
 
         // Save the record to the database
         UserModel::load()->store($user);
+        return view::redirect('/');
     }
 
     /**
@@ -112,6 +115,7 @@ class UserController extends Controller
 
         // Save the record to the database
         UserModel::load()->update($user, Helper::getUserIdFromSession());
+        return view::redirect('/');
     }
 
     /**
@@ -124,7 +128,7 @@ class UserController extends Controller
         $user = UserModel::load()->get($userId);
         #$education = EducationModel::load()->getUserEducations($userId);
 
-        View::render('users/show.view', [
+        return View::render('users/show.view', [
             'user' => $user, 
             #'educations' => $education,
         ]);
@@ -135,7 +139,7 @@ class UserController extends Controller
      */
     public function destroy()
     {
-        //get user id from session or from link
+        //get user id from session
         //userid->delete
         //direct to page
     }

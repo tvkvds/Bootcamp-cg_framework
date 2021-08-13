@@ -20,7 +20,7 @@ class EducationController extends Controller
         $education = new EducationModel();
         $id = Helper::getUserIdFromSession(); //set user id 
 
-        View::render('educations/index.view', [
+        return View::render('educations/index.view', [
             
             'educations' => $education->getUserEducations($id),
             'user' => $id,
@@ -38,7 +38,7 @@ class EducationController extends Controller
         
         $education = EducationModel::load()->get($id);
 
-        View::render('educations/show.view', [
+        return View::render('educations/show.view', [
             'education' => $education, 
             'roles'     => RoleModel::load()->all(), 
         ]);
@@ -70,7 +70,7 @@ class EducationController extends Controller
 
         EducationModel::load()->store($education);  //send to database
 
-        View::redirect('education',[
+        return View::redirect('education',[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
         ]);
 
@@ -105,7 +105,7 @@ class EducationController extends Controller
        
         EducationModel::load()->update($education, $education['id']); //mysql post to database
 
-        View::redirect('education',[
+        return View::redirect('education',[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
         ]);
     }
@@ -120,7 +120,8 @@ class EducationController extends Controller
         //userid->destroy - educationmodel-load-delete/destroy insert id
         EducationModel::load()->destroy($id);
         //direct to page - view redirect to relevant page
-        View::redirect("education",[
+        
+        return View::redirect("education",[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
         ]);
     }

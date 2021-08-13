@@ -17,7 +17,7 @@ class ProjectController extends Controller
         $project = new ProjectModel();
         $id = Helper::getUserIdFromSession(); //set user id 
 
-        View::render('projects/index.view', [
+        return View::render('projects/index.view', [
             
             'projects' => $project->getUserProjects($id),
             'user' => $id,
@@ -32,7 +32,7 @@ class ProjectController extends Controller
         
         $project = ProjectModel::load()->get($projectId);
 
-        View::render('projects/show.view', [
+        return View::render('projects/show.view', [
             'project' => $project, 
         ]);
     }
@@ -65,7 +65,7 @@ class ProjectController extends Controller
        
         ProjectModel::load()->update($project, $project['id']);
 
-        View::redirect('project');
+        return View::redirect('project');
     }
 
     //form to create new project record
@@ -89,7 +89,7 @@ class ProjectController extends Controller
 
         ProjectModel::load()->store($project);  //send to database
 
-        View::redirect("project"); //redirect to index page educations
+        return View::redirect("project"); //redirect to index page educations
 
     }
 
@@ -101,7 +101,7 @@ class ProjectController extends Controller
         
         ProjectModel::load()->destroy($id);
         
-        View::redirect("project",[
+        return View::redirect("project",[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
         ]);
     }

@@ -7,6 +7,7 @@ use App\Libraries\MySql;
 use App\Models\JobModel;
 use App\Libraries\View;
 use App\Models\RoleModel;
+use FFI\Exception;
 
 class JobController extends Controller
 {
@@ -20,7 +21,7 @@ class JobController extends Controller
         $job = new JobModel();
         $id = Helper::getUserIdFromSession(); //set user id 
 
-        View::render('jobs/index.view', [
+        return View::render('jobs/index.view', [
             
             'jobs' => $job->getUserJobs($id),
             'user' => $id,
@@ -37,7 +38,7 @@ class JobController extends Controller
         
         $job = JobModel::load()->get($jobId);
 
-        View::render('jobs/show.view', [
+        return View::render('jobs/show.view', [
             'job' => $job, 
         ]);
     }
@@ -64,12 +65,15 @@ class JobController extends Controller
 
     public function update()
     {
-        $job = $_POST; //get data from req
-        $job['updated_by'] = Helper::getUserIdFromSession();
-       
-        JobModel::load()->update($job, $job['id']);
-
-        View::redirect('job');
+            
+            $job = $_POST; //get data from req
+            
+            $job['updated_by'] = Helper::getUserIdFromSession();
+           
+             JobModel::load()->update($job, $job['id']);
+            
+            return View::redirect('job');
+           
     }
 
     /**
@@ -86,16 +90,17 @@ class JobController extends Controller
 
     //store new job from create()
     public function store()
-    {
-
+    {   
+        
         $job = $_POST;  //set vars from user
+        if ($job['end_year'] == "") {$job['end_year'] = NULL;}
         $job['user_id'] = Helper::getUserIdFromSession(); //set id of user
         $job['created_by'] = Helper::getUserIdFromSession(); //add id of creator
         $job['created'] = date('Y-m-d'); // add timestamp
 
         JobModel::load()->store($job);  //send to database
 
-        View::redirect("job"); //redirect to index page educations
+        return View::redirect("job"); //redirect to index page educations
 
     }
 
@@ -106,7 +111,7 @@ class JobController extends Controller
         
         JobModel::load()->destroy($id);
         
-        View::redirect("job",[
+        return View::redirect("job",[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware
         ]);
     }

@@ -42,20 +42,20 @@ return [
                 'created_by' =>  1,
             ],
             [
-                'user_id' => 4,
+                'user_id' => 1,
                 'start_year' => 2019,
                 'role' =>  'Professioneel koekenbakker',
                 'company' =>  'Rue savaron',
                 'created' =>  date('Y-m-d H:i:s'),
-                'created_by' =>  4,
+                'created_by' =>  1,
             ],
             [
-                'user_id' => 4,
+                'user_id' => 1,
                 'start_year' => 2021,
                 'role' =>  'Sous-chef',
                 'company' =>  'Flanagans',
                 'created' =>  date('Y-m-d H:i:s'),
-                'created_by' =>  4,
+                'created_by' =>  1,
             ],
             
         ]

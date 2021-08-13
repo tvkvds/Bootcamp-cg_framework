@@ -32,7 +32,7 @@ return [
     'seeder' => [
         'type' => 'array',
         'data' => [[
-            'user_id' => 1,
+            'user_id' => 4,
             'start_year' => 2012,
             'name' => 'PHP',
             'info' => 'PHP Backend Developer',
@@ -55,34 +55,34 @@ return [
             'user_id' => 4,
             'start_year' => 2001,
             'name' => 'Stucadoor',
-            'info' => 'Aan een stuk door',
+            'info' => 'Een stukadoor, stuc-, plak- of pleisterwerker is een vakman die een afwerklaag van stucwerk aanbrengt op muren en plafonds in het interieur van een gebouw.',
             'institution' => 'Deur de deur deur',
             'created' => date('Y-m-d H:i:s'),
-            'created_by' => 1,
+            'created_by' => 4,
         ],
 
         [
-            'user_id' => 2,
+            'user_id' => 1,
             'start_year' => 1978,
             'name' => 'Kwakmeister',
-            'info' => 'professionel kwakkeren',
+            'info' => 'Donald Fauntleroy Duck is a cartoon character created by The Walt Disney Company. Donald is an anthropomorphic white duck with a yellow-orange bill, legs, and feet. He typically wears a sailor shirt and cap with a bow tie.',
             'institution' => '*kwak*',
             'created' => date('Y-m-d H:i:s'),
-            'created_by' => 1,
+            'created_by' => 4,
         ],
 
         [
-            'user_id' => 3,
+            'user_id' => 4,
             'start_year' => 2012,
             'name' => 'PHP',
-            'info' => 'PHP Backend Developer',
+            'info' => 'HP is a general-purpose scripting language geared towards web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is now produced by The PHP Group.',
             'institution' => 'Codegorillas',
             'created' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],
 
         [
-            'user_id' => 4,
+            'user_id' => 1,
             'start_year' => 1978,
             'name' => 'Kwakmeister',
             'info' => 'professionel kwakkeren',

@@ -30,23 +30,23 @@ return [
         'type' => 'array',
         'data' => [
             [
-            'user_id' => 4,
+            'user_id' => 1,
             'hobby' => 'Olifanten schieten',
-            'description' => 'Alleen als het nieuwe maan is',
+            'description' => 'Alleen als het nieuwe maan is. De dikke huid van de olifant beschermt hem tegen verwondingen. De hoge positie van de ruiter geeft een uitstekend uitzicht, maar maakt hem een duidelijk zichtbaar doel.',
             'created' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],
 
         [
-            'user_id' => 4,
+            'user_id' => 1,
             'hobby' => 'Crepes maken',
-            'description' => 'Van crepespapier',
+            'description' => 'Van crepespapier. Een kleurrijke aanvulling op je grijze zaterdag.',
             'created' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],
 
         [
-            'user_id' => 4,
+            'user_id' => 1,
             'hobby' => 'MongoDB Models maken',
             'description' => 'Met mongoose',
             'created' => date('Y-m-d H:i:s'),
