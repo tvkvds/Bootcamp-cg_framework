@@ -32,7 +32,9 @@ return [
     'seeder' => [
         'type' => 'array',
         'data' => array(
-            
+
+            //user table permissions
+
         [
             'name'       => 'show_user',
             'created'    => date('Y-m-d H:i:s'),
@@ -63,6 +65,8 @@ return [
             'created_by' => 1
         ],
 
+         //project table permissions
+
         [
             'name'       => 'show_project',
             'created'    => date('Y-m-d H:i:s'),
@@ -91,7 +95,79 @@ return [
             'name'       => 'delete_project',
             'created'    => date('Y-m-d H:i:s'),
             'created_by' => 1
-        ]
+        ],
+
+        //education table permissions
+
+        [
+            'name'       => 'show_education',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'create_education',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'read_education',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+        
+        [
+            'name'       => 'update_education',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'delete_education',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        //job table permissions
+
+        [
+            'name'       => 'show_job',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'create_job',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'read_job',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+        
+        [
+            'name'       => 'update_job',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'delete_job',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        //skill table permissions
+
+        //hobby table permissions
+
+
+
+
 
     ),
     ],

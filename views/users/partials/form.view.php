@@ -1,6 +1,7 @@
 <form method="<?= $vars['method'] ?>" action="/user/store">
     <div class="container mt-5">
         <div class="row mb-3">
+            
             <div class="col-md-4">
                 <input type="text" name="first_name" placeholder="Voornaam" value="<?= isset($vars['user']) ? $vars['user']->first_name : '' ?>">
             </div>
