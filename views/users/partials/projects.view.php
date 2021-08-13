@@ -39,12 +39,15 @@
     <?php endforeach;?> 
 </div>
 
+<?php if ($_SESSION['user']['uid'] == $project->user_id) :?>
 <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
     <a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new project</a>
 </div>
+   <?php endif;?>
 
 <?php else :?>
 
+    <?php if ($_SESSION['user']['uid'] == $vars['user']->id) :?>
 <div class="p-4 mt-4 row d-flex justify-content-center">
     <h4>You have not added any projects yet!</h4>
 </div>
@@ -52,5 +55,10 @@
 <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
     <a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new project</a>
 </div>
+<?php else:?>
+    <div class="p-4 mt-4 row d-flex justify-content-center">
+    <h4>This user has not added any projects yet!</h4>
+</div>
+<?php endif;?>
 
 <?php endif;?>

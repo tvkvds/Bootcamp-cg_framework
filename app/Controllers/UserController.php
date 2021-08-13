@@ -34,7 +34,7 @@ class UserController extends Controller
     public function cv()
     {
 
-        $user_id = Helper::getUserIdFromSession();
+        $user_id = Helper::getIdFromUrl('user');
         $userModel = new UserModel();
         $educationModel = new EducationModel();
         $hobbyModel = new HobbyModel();
