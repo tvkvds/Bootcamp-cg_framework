@@ -1,6 +1,9 @@
 <div class="row profile-top px-4  d-flex justify-content-center">
     <a href="/job" name="projects"><h4>Experience</h4></a>
 </div>
+
+<?php if (!$vars['jobs'] == NULL) :?>
+
 <div class="px-4 mt-4  row d-flex justify-content-center">
     <div class="col">
         <?php $jobs = $vars['jobs']?>
@@ -28,7 +31,8 @@
                     <?php if ($_SESSION['user']['uid'] == $job->user_id) :?>
                 <div class="row px-4 pt-2 mt-2 d-flex justify-content-center editdelete">
                     <a href="/job/<?=$job->id?>/edit"><button  class="btn">Edit</button></a>
-                    <a href="/job/<?=$_job->id?>/destroy"><button  class="btn">Delete</button></a>
+                    <a href="/job/<?=$job->id?>/destroy"><button  class="btn">Delete</button></a>
+                   
                 </div>
                 <?php endif;?>
                 </div>
@@ -40,3 +44,15 @@
             </div>
     </div>
 </div>
+
+<?php else :?>
+
+<div class="p-4 mt-4 row d-flex justify-content-center">
+    <h4>You have not added any jobs yet!</h4>
+</div>
+
+<div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
+    <a href="/job/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new job</a>
+</div>
+
+<?php endif;?>

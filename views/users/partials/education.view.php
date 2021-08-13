@@ -2,6 +2,9 @@
 <div class="row profile-top px-4  d-flex justify-content-center">
     <a href="/education" name="projects"><h4>Education</h4></a>
 </div>
+
+<?php if (!$vars['educations'] == NULL) :?>
+
 <div class="px-4 mt-4  row d-flex justify-content-center">
     <div class="col">
         <?php $educations = $vars['educations']?>
@@ -41,3 +44,15 @@
         </div>
     </div>
 </div>
+
+<?php else :?>
+
+<div class="p-4 mt-4 row d-flex justify-content-center">
+    <h4>You have not added any educations yet!</h4>
+</div>
+
+<div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
+    <a href="/education/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new education</a>
+</div>
+
+<?php endif;?>
