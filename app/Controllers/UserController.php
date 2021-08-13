@@ -34,7 +34,7 @@ class UserController extends Controller
     public function cv()
     {
 
-        $user_id = Helper::getUserIdFromSession();
+        $user_id = Helper::getIdFromUrl('user');
         $userModel = new UserModel();
         $educationModel = new EducationModel();
         $hobbyModel = new HobbyModel();
@@ -44,13 +44,13 @@ class UserController extends Controller
         
         return View::render('users/cv.view',[
             //exclude password from being passed to the view
-            'user' => $userModel->get($user_id, ['first_name', 'last_name', 'country',
-            'city', 'birthday', 'insertion', 'email', 'id']),
+            'user'       => $userModel->get($user_id, ['first_name', 'last_name', 'country',
+            'city', 'birthday', 'insertion', 'email', 'id', 'role']),
             'educations' => $educationModel->getUserEducations($user_id),
-            'hobbies' => $hobbyModel->getUserHobbies($user_id),
-            'jobs' => $jobModel->getUserJobs($user_id),
-            'projects' => $projectModel->getUserProjects($user_id),
-            'skills' => $skillModel->getUserSkills($user_id),
+            'hobbies'    => $hobbyModel->getUserHobbies($user_id),
+            'jobs'       => $jobModel->getUserJobs($user_id),
+            'projects'   => $projectModel->getUserProjects($user_id),
+            'skills'     => $skillModel->getUserSkills($user_id),
         ]);  
     }
 
@@ -72,6 +72,8 @@ class UserController extends Controller
     {
         // Save post data in $user var
         $user = $_POST;
+
+        if ($user['country'] == ""){$user['country'] = 156;}
 
         // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);

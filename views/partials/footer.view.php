@@ -20,31 +20,31 @@
 </div>
 
 <div class="col-2 ">
-<h6 class=" row">Jobs</h6>
-<a href="/job" class='row'>My jobs</a>
-<a href="/job/<?=$_SESSION['user']['uid']?>/create" class='row'>New job</a>
+    <h6 class=" row">Jobs</h6>
+    <a href="/job" class='row'>My jobs</a>
+    <a href="/job/<?=$_SESSION['user']['uid']?>/create" class='row'>New job</a>
 </div>
 
 <div class="col-2 ">
-<h6 class="row">Skills</h6>
-<a href="/skill" class='row'>My skills</a>
-<a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>New skill</a>
+    <h6 class="row">Skills</h6>
+    <a href="/skill" class='row'>My skills</a>
+    <a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>New skill</a>
 </div>
 
 <div class="col-2 ">
-<h6 class="row">Projects</h6>
-<a href="/project" class='row'>My projects</a>
-<a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>New project</a>
+    <h6 class="row">Projects</h6>
+    <a href="/project" class='row'>My projects</a>
+    <a href="/project/<?=$_SESSION['user']['uid']?>/create" class='row'>New project</a>
 </div>
 
 <div class="col-2 ">
-<h6 class="row">Hobbies</h6>
-<a href="/hobby" class='row'>My hobbies</a>
-<a href="/hobby/<?=$_SESSION['user']['uid']?>/create" class='row'>New hobby</a>
+    <h6 class="row">Hobbies</h6>
+    <a href="/hobby" class='row'>My hobbies</a>
+    <a href="/hobby/<?=$_SESSION['user']['uid']?>/create" class='row'>New hobby</a>
 </div>
 
 <?php else:?>
-<p>You are not logged in</p>
+    <p>You are not logged in</p>
 <?php endif;?>
 
 </div>

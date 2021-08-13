@@ -50,6 +50,7 @@ class EducationController extends Controller
      */
     public function create()
     {
+
         return View::render('educations/create.view', [
             'method'    => 'POST', // set method for form
             'action' => '/education/store', //set destination for form
@@ -69,6 +70,9 @@ class EducationController extends Controller
         $education['created'] = date('Y-m-d'); // add timestamp
 
         EducationModel::load()->store($education);  //send to database
+
+        $msg = new \Plasticbrain\FlashMessages\FlashMessages();
+        $msg->info('New education succesfully created!');
 
         return View::redirect('education',[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible
@@ -104,6 +108,9 @@ class EducationController extends Controller
         $education['updated_by'] = Helper::getUserIdFromSession();
        
         EducationModel::load()->update($education, $education['id']); //mysql post to database
+
+        $msg = new \Plasticbrain\FlashMessages\FlashMessages();
+        $msg->info('Your education has been edited!');
 
         return View::redirect('education',[
             'roles'     => RoleModel::load()->all(), //load roles for permission middleware]); //to a page where update is visible

@@ -1,6 +1,7 @@
 
 <?php require 'views/partials/header.view.php' ?>
 
+
 <?php $user = $vars['user'];?>
 <?php $projects = $vars['projects'];?>
 

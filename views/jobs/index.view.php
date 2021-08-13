@@ -2,6 +2,7 @@
 
 <?php require 'views/partials/header.view.php' ?>
 
+
 <h3> Index </h3>
 
 <?php if ($vars['jobs'] == NULL) :?>

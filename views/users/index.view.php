@@ -5,7 +5,7 @@
     <ul>
     <?php foreach ($vars['users'] as $user) : ?>
         <li>
-            <a href="user/<?= $user->id?>">
+            <a href="user/<?= $user->id?>/cv">
             <?= $user->first_name . ' ' . $user->last_name?>
             </a>
         </li>
