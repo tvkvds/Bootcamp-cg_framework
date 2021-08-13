@@ -33,31 +33,73 @@ return [
         'type' => 'array',
         'data' => array(
         [
-            'role_id'       => 2,
+            'role_id'       => 3,
             'permission_id' => 1,
             'created'       => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
 
         [
-            'role_id'       => 2,
+            'role_id'       => 3,
             'permission_id' => 2,
             'created'       => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
         
         [
-            'role_id'       => 2,
+            'role_id'       => 3,
             'permission_id' => 3,
             'created'       => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
 
         [
-            'role_id'       => 2,
+            'role_id'       => 3,
             'permission_id' => 4,
             'created'       => date('Y-m-d H:i:s'),
             'created_by'    => 1
-        ]),
+        ],
+        [
+            'role_id'       => 3,
+            'permission_id' => 5,
+            'created'       => date('Y-m-d H:i:s'),
+            'created_by'    => 1
+        ],
+        [
+            'role_id'       => 3,
+            'permission_id' => 6,
+            'created'       => date('Y-m-d H:i:s'),
+            'created_by'    => 1
+        ],
+
+        [
+            'role_id'       => 3,
+            'permission_id' => 7,
+            'created'       => date('Y-m-d H:i:s'),
+            'created_by'    => 1
+        ],
+        
+        [
+            'role_id'       => 3,
+            'permission_id' => 8,
+            'created'       => date('Y-m-d H:i:s'),
+            'created_by'    => 1
+        ],
+
+        [
+            'role_id'       => 3,
+            'permission_id' => 9,
+            'created'       => date('Y-m-d H:i:s'),
+            'created_by'    => 1
+        ],
+        [
+            'role_id'       => 3,
+            'permission_id' => 10,
+            'created'       => date('Y-m-d H:i:s'),
+            'created_by'    => 1
+        ]
+    
+    
+    ),
     ],
 ];

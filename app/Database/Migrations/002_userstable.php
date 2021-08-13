@@ -78,7 +78,7 @@ return [
             'last_name'  => 'ster',
             'email'      => 'tam@test.nl',
             'password'   => password_hash('Gorilla1!', PASSWORD_DEFAULT),
-            'role'       => 1,
+            'role'       => 3,
             'country'    => 156,
             'city'       => 'mm\'n',
             'birthday'   => '1985-04-02',

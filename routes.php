@@ -29,21 +29,23 @@ $router->get('user/{id}', 'App/Controllers/UserController.php@show', [
 ]);
 
 $router->get('user/{id}/cv', 'App/Controllers/UserController.php@cv',[
-    'cv' => WhenNotLoggedin::class
+    'show' => Permissions::class
 ]);
 
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
-    'edit' => Permissions::class
+    'show' => Permissions::class
 ]);
 
 $router->get('users', 'App/Controllers/UserController.php@index', [
-    'index' => Permissions::class
+    
 ]);
 
-$router->get('user/create', 'App/Controllers/UserController.php@create');
+$router->get('user/create', 'App/Controllers/UserController.php@create', [
+    'create' => Permissions::class
+]);
 
 $router->post('user/{id}/update', 'App/Controllers/UserController.php@update', [
-    'update' => Permissions::class
+   'update' => Permissions::class
 ]);
 
 $router->post('user/store', 'App/Controllers/UserController.php@store', [
@@ -51,7 +53,7 @@ $router->post('user/store', 'App/Controllers/UserController.php@store', [
 ]);
 
 $router->post('user/{id}/destroy', 'App/Controllers/UserController.php@update', [
-    'update' => Permissions::class
+    'delete' => Permissions::class
 ]);
 
 //
@@ -188,7 +190,7 @@ $router->get('hobby/{id}/destroy', 'App/Controllers/HobbyController.php@destroy'
 //
 
 $router->get('project', 'App/Controllers/ProjectController.php@index', [
-    'index' => Permissions::class
+    'show' => Permissions::class
 ]);
 
 $router->get('project/{id}', 'App/Controllers/ProjectController.php@show', [
@@ -196,7 +198,7 @@ $router->get('project/{id}', 'App/Controllers/ProjectController.php@show', [
 ]);
 
 $router->get('project/{id}/edit', 'App/Controllers/ProjectController.php@edit', [
-    'edit' => Permissions::class
+    'show' => Permissions::class
 ]);
 
 $router->post('project/{id}/update', 'App/Controllers/ProjectController.php@update', [
@@ -204,7 +206,7 @@ $router->post('project/{id}/update', 'App/Controllers/ProjectController.php@upda
 ]);
 
 $router->get('project/{id}/create', 'App/Controllers/ProjectController.php@create', [
-    'edit' => Permissions::class
+    'create' => Permissions::class
 ]);
 
 $router->post('project/store', 'App/Controllers/ProjectController.php@store', [
@@ -212,7 +214,7 @@ $router->post('project/store', 'App/Controllers/ProjectController.php@store', [
 ]);
 
 $router->get('project/{id}/destroy', 'App/Controllers/ProjectController.php@destroy', [
-    'destroy' => Permissions::class
+    'delete' => Permissions::class
 ]);
 
 

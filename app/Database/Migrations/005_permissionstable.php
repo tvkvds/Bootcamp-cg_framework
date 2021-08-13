@@ -31,7 +31,9 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => array([
+        'data' => array(
+            
+        [
             'name'       => 'show_user',
             'created'    => date('Y-m-d H:i:s'),
             'created_by' => 1
@@ -59,6 +61,38 @@ return [
             'name'       => 'delete_user',
             'created'    => date('Y-m-d H:i:s'),
             'created_by' => 1
-        ]),
+        ],
+
+        [
+            'name'       => 'show_project',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'create_project',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'read_project',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+        
+        [
+            'name'       => 'update_project',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'delete_project',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ]
+
+    ),
     ],
 ];

@@ -1,5 +1,7 @@
 
 <?php require 'views/partials/header.view.php' ?>
+
+<?php dd($vars);?>
     
 <div class="container">
     <div class="col">

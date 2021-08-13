@@ -5,6 +5,10 @@
                 <input type="text" name="first_name" placeholder="Voornaam" value="<?= isset($vars['user']) ? $vars['user']->first_name : '' ?>">
             </div>
 
+            <div class="col-md-4">
+                <input type="text" name="insertion" placeholder="van der" value="<?= isset($vars['user']) ? $vars['user']->insertion : '' ?>">
+            </div>
+
             <div class="col-md-6">
                 <input type="text" name="last_name" placeholder="Achternaam" value="<?= isset($vars['user']) ? $vars['user']->last_name : '' ?>">
             </div>
@@ -12,13 +16,13 @@
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <input type="email" name="email" placeholder="E-mail">
+                <input type="email" name="email" placeholder="E-mail" value="<?= isset($vars['user']) ? $vars['user']->email : '' ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <input type="text" name="city" placeholder="Woonplaats">
+                <input type="text" name="city" placeholder="Woonplaats" value="<?= isset($vars['user']) ? $vars['user']->city : '' ?>">
             </div>
         </div>
 
@@ -36,7 +40,7 @@
         <div class="row mb-3">
             <div class="col-md-4">
                 <label>Geboortedatum</label><br/>
-                <input type="date" name="birthday">
+                <input type="date" name="birthday" value="<?= isset($vars['user']) ? $vars['user']->birthday : '' ?>">
             </div>
         </div>
 

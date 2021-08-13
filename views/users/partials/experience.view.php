@@ -39,9 +39,11 @@
                 
                 
             <?php endforeach;?>
+            <?php if ($_SESSION['user']['uid'] == $job->user_id) :?>
             <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
             <a href="/job/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new job</a>
             </div>
+            <?php endif;?>
     </div>
 </div>
 
