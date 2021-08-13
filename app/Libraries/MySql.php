@@ -2,6 +2,7 @@
 
 namespace App\Libraries;
 
+use App\Helpers\Helper;
 use PDO;
 
 class MySql
@@ -110,6 +111,9 @@ class MySql
     {
         $setStr = "";
         $params = array();
+
+        $data['updated'] = date('Y-m-d H:i:s');
+        $date['updated_by'] = Helper::getUserIdFromSession();
 
         foreach ($data as $col => $val)
         {

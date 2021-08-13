@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
+
 body {
     font-family: 'Assistant', sans-serif;
     font-size: 1em;
     font-weight: 200;
     background-color: white;
+    min-height: 100vh;
 }
 
 a:link,
 a:active,
 a:visited {
     color: rgb(12, 11, 11);
+    text-decoration: none;
 }
 
 .error-message {
@@ -70,6 +73,19 @@ header {
     width: 150px;
     opacity: 0.6;
 }
+.profile-icon  {
+    width: 100px;
+    opacity: 0.8;
+}
+.project-icon  {
+    width: 200px;
+    opacity: 0.6;
+}
+
+.github-icon  {
+    width: 100px;
+    opacity: 0.3;
+}
 
 .register-form img {
     width: 100px;
@@ -118,12 +134,12 @@ header .guitar-icon {
 }
 
 footer {
-    height: 120px;
+    height: 180px;
     background-color: #2f2c2d;
     width: 100%;
-    position: absolute;
     bottom: -1px;
     color: white;
+    position:relative;
 }
 
 .overlay {
@@ -188,10 +204,55 @@ footer {
     border-radius: .3em;
     cursor: pointer;
 }
+.profile-top{
+    background-color: rgb(158,210,157);
+}
 
 input[type="text"], input[type="email"] {
     width: 100%;
 }
 .navbar{
     background-color: rgb(158,210,157);
+}
+
+.job {
+    background-color: #d4d4d448;
+}
+
+.educations {
+    background-color: #d4d4d448;
+}
+.projects {
+    background-color: #d4d4d448;
+    
+}
+
+.addnew{
+    background-color: rgba(158, 210, 157, 0.445)
+}
+
+
+.addnew:hover { 
+    background-color: rgb(158,210,157);
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+
+    }
+    
+.editdelete:hover{
+    transform: scale(1.02); 
+    -webkit-transition: transform 0.2s ease-in-out;
+}
+
+.form-button{
+    background-color: rgba(158, 210, 157, 0.445)
+}
+
+.form-button:hover{
+    background-color: rgb(158,210,157);
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+
 }

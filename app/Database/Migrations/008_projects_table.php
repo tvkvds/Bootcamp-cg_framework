@@ -23,9 +23,9 @@ return [
 
     'relations' => [
         'ALTER TABLE `projects` ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `projects` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `projects` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `projects` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
     ],
 
     'seeder' => [
@@ -35,27 +35,39 @@ return [
                 'user_id' => 1,
                 'name' =>  'tic-tac-toe',
                 'source' =>  'https://playtictactoe.org/',
-                'live' =>  1,
+                'live' =>  0,
                 'created' =>  date('Y-m-d H:i:s'),
                 'created_by' =>  1,
+                'role' => 'Tic-tac-toe, noughts and crosses, or Xs and Os, is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid.'
             ], 
 
             [
-                'user_id' => 2,
+                'user_id' => 1,
                 'name' =>  'nu.nl',
                 'source' =>  'https://www.nu.nl',
-                'live' =>  1,
+                'live' =>  0,
                 'created' =>  date('Y-m-d H:i:s'),
                 'created_by' =>  1,
+                'role' => 'U.nl is een Nederlandse nieuwswebsite die eigendom is van het mediabedrijf DPG Media uit Vlaanderen. Naast eigen redactionele artikelen plaatst de website ook nieuwsberichten van regionale en lokale partners zoals AT5, NH Nieuws, De Bode en BredaVandaag.'
             ], 
 
             [
-                'user_id' => 3,
+                'user_id' => 1,
                 'name' =>  'Github',
                 'source' =>  'https://github.com/tvkvds',
                 'live' =>  1,
                 'created' =>  date('Y-m-d H:i:s'),
                 'created_by' =>  1,
+                'role' => 'GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own features.'
+            ], 
+            [
+                'user_id' => 1,
+                'name' =>  'Find the cow :)',
+                'source' =>  'https://findtheinvisiblecow.com/?wpisrc=nl_wonk',
+                'live' =>  1,
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+                'role' => 'Drag your mouse (or finger) around to find the cow. Make sure you turn your audio on before playing. If you do not hear anything, it\'s possible that your browser does not support the Web Audio API.'
             ], 
         ],
     ],

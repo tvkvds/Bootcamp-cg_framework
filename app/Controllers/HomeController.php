@@ -13,7 +13,7 @@ class HomeController {
        
 
         View::render('site/home.view', [
-            'users' => $userModel->all(['first_name', 'last_name', 'id']),
+           
             
         ]);
     }

@@ -22,7 +22,7 @@ class Model
      */
     public function __construct($model, $limit = null, $protectedFields = null)
     {
-        $this->model = pluralize(4, $model);
+        $this->model = $model;
         $this->limit = $limit;
         $this->protectedFields = $protectedFields;
     }
@@ -82,6 +82,7 @@ class Model
      */
     public function store(array $data)
     {
+        
         return MySql::insert($this->removeIllegalFields($data), $this->model);
     }
 

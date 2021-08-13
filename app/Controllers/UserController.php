@@ -6,8 +6,12 @@ use App\Helpers\Helper;
 use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
-use App\Models\RoleModel;
 use App\Models\EducationModel;
+use App\Models\RoleModel;
+use App\Models\HobbyModel;
+use App\Models\JobModel;
+use App\Models\ProjectModel;
+use App\Models\SkillModel;
 
 class UserController extends Controller
 {
@@ -19,10 +23,35 @@ class UserController extends Controller
     {
         $userModel = new UserModel();
 
-        View::render('users/index.view', [
-            'users' => $userModel->all(),
+        return View::render('users/index.view', [
+            //exclude password from being passed to the view
+            'users' => $userModel->all(['first_name', 'last_name', 'country',
+            'city', 'birthday', 'insertion', 'email', 'id']),
             
         ]);
+    }
+
+    public function cv()
+    {
+
+        $user_id = Helper::getUserIdFromSession();
+        $userModel = new UserModel();
+        $educationModel = new EducationModel();
+        $hobbyModel = new HobbyModel();
+        $jobModel = new JobModel();
+        $projectModel = new ProjectModel();
+        $skillModel = new SkillModel();
+        
+        return View::render('users/cv.view',[
+            //exclude password from being passed to the view
+            'user' => $userModel->get($user_id, ['first_name', 'last_name', 'country',
+            'city', 'birthday', 'insertion', 'email', 'id']),
+            'educations' => $educationModel->getUserEducations($user_id),
+            'hobbies' => $hobbyModel->getUserHobbies($user_id),
+            'jobs' => $jobModel->getUserJobs($user_id),
+            'projects' => $projectModel->getUserProjects($user_id),
+            'skills' => $skillModel->getUserSkills($user_id),
+        ]);  
     }
 
     /**
@@ -51,6 +80,7 @@ class UserController extends Controller
 
         // Save the record to the database
         UserModel::load()->store($user);
+        return view::redirect('/');
     }
 
     /**
@@ -78,16 +108,14 @@ class UserController extends Controller
         // Save post data in $user var
         $user = $_POST;
 
-        // Remmove the form token
-        unset($user['f_token']);
-
         // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
-        $user['created_by'] = Helper::getUserIdFromSession();
+        $user['updated_by'] = Helper::getUserIdFromSession();
         $user['created'] = date('Y-m-d');
 
         // Save the record to the database
         UserModel::load()->update($user, Helper::getUserIdFromSession());
+        return view::redirect('/');
     }
 
     /**
@@ -98,9 +126,11 @@ class UserController extends Controller
         $userId = Helper::getIdFromUrl('user');
         
         $user = UserModel::load()->get($userId);
+        #$education = EducationModel::load()->getUserEducations($userId);
 
-        View::render('users/show.view', [
+        return View::render('users/show.view', [
             'user' => $user, 
+            #'educations' => $education,
         ]);
     }
 
@@ -109,7 +139,9 @@ class UserController extends Controller
      */
     public function destroy()
     {
-
+        //get user id from session
+        //userid->delete
+        //direct to page
     }
 
 }

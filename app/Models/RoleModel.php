@@ -6,7 +6,7 @@ class RoleModel extends Model
 {
 
     // Name of the table
-    protected $model = "role";
+    protected $model = "roles";
 
     // Max number of records when fetching all records from table
     protected $limit;

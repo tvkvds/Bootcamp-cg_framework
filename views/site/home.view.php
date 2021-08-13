@@ -1,14 +1,15 @@
-<?php require 'views/partials/header.view.php' ?>
-    Home
 
+<?php require 'views/partials/header.view.php' ?>
     
-    <ul>
-    <?php foreach ($vars['users'] as $user) : ?>
-        <li>
-        <a href="user/<?= $user->id?>">
-        <?= $user->first_name . ' ' . $user->last_name?>
-        </a>
-        </li>
-        <?php endforeach ;?>
-        </ul>
+<div class="container">
+    <div class="col">
+
+    </div>
+    <div class="col-3">
+        <?php if(isset($_SESSION['user'])):?>
+            <h3>Welcome back <i><?=$_SESSION['user']['full_name']?></i></h3>
+        <?php endif;?>
+    </div>
+</div>
+     
 <?php require 'views/partials/footer.view.php' ?>

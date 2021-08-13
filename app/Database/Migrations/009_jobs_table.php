@@ -9,7 +9,7 @@ return [
     'scheme' => "CREATE TABLE IF NOT EXISTS `jobs` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `user_id` int NOT NULL,
-        `function` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `company` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `responsibilities` text(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
         `start_year` year NOT NULL,
@@ -25,15 +25,38 @@ return [
 
     'relations' => [
         'ALTER TABLE `jobs` ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `users` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `jobs` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `jobs` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `jobs` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
     ],
 
     'seeder' => [
         'type' => 'array',
         'data' => [  
-           
+            [
+                'user_id' => 1,
+                'start_year' => 2012,
+                'role' =>  'function',
+                'company' =>  'company fuga fuga atque occaecati omnis voluptatem rem quisquam sapiente aliquam ea et impedit accusamus saepe harum qui dolores quos est',
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+            ],
+            [
+                'user_id' => 1,
+                'start_year' => 2019,
+                'role' =>  'Professioneel koekenbakker',
+                'company' =>  'Rue savaron',
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+            ],
+            [
+                'user_id' => 1,
+                'start_year' => 2021,
+                'role' =>  'Sous-chef',
+                'company' =>  'Flanagans',
+                'created' =>  date('Y-m-d H:i:s'),
+                'created_by' =>  1,
+            ],
             
         ]
     ],

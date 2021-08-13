@@ -8,7 +8,7 @@ use App\Middleware\WhenLoggedIn;
 
 class LoginController
 {
-    protected $redirectWhenLoggedIn = 'admin';
+    protected $redirectWhenLoggedIn = '/';
 
 
     public function __construct($function = null)
@@ -76,7 +76,7 @@ class LoginController
     {
         session_destroy();
 
-        View::redirect("login");
+        View::redirect("/");
     }
     
 

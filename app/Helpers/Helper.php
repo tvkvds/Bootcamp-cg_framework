@@ -36,13 +36,14 @@ class Helper
      */
     public static function getIdFromUrl($param) : int
     {
+		
         $param = trim(strtolower($param));
 		$allParams = array();
 		$request  = trim($_SERVER['REQUEST_URI']);
 
 		//split the path by '/'
 		$params = explode("/", $request);
-
+		
 		//get rid of empty index (check for double or unnessacary slashes)
 		$cleans = self::cleansParams($params);
 
@@ -57,17 +58,21 @@ class Helper
 			{
 				if (trim(strtolower($cleans[$i])) == $param)
 				{
+					
 					if ($i + 1 <= count($cleans) - 1)
 					{
 						return (int)$cleans[$i + 1];
+						
 					}
 				}
 			}
+			
 			else
 			{
 				if (count($cleans) > 2 && $i + 1 <= count($cleans) - 1)
 				{
 					$allParams[$cleans[$i]] = $cleans[$i + 1];
+				
 				}
 			}
 		}
