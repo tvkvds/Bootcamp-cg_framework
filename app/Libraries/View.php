@@ -9,11 +9,11 @@ class View
         // Default view folder
         $folder = '/views/';
 
-        // Get rid of unwanted sladhes at begining and end of view file
+        // Get rid of unwanted slashes at beginning and end of view file
         $view = ltrim($view, "/");
         $view = rtrim($view, "/");
 
-        // Search for slashes (and though: sub-folders)
+        // Search for slashes (and through: sub-folders)
         $slashPos = strpos($view, '/');
         if ($slashPos !== false) {
             $folder .= substr($view, 0, $slashPos);

@@ -1,10 +1,7 @@
-
-<?php $projects = $vars['projects'] ?>
-
-
 <?php require 'views/partials/header.view.php' ?>
 
 <div class="px-5 mt-4 row d-flex justify-content-center">
+    <?php $projects = $vars['projects'] ?>
     
     <?php foreach ($projects as $project) :?>
         <div class="col-5 mx-5 projects" >

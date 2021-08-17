@@ -11,7 +11,7 @@ return [
         `skill` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `category` set('coding', 'design', 'soft') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'coding',
-        `in_progress` tinyInt(1) DEFAULT NULL,
+        `in_progress` tinyInt(1) NOT NULL DEFAULT 1,
         `created` timestamp NOT NULL,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
         `deleted` timestamp DEFAULT NULL,

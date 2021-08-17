@@ -66,6 +66,12 @@ class JobController extends Controller
             
             $job = $_POST; //get data from req
             $job['updated_by'] = Helper::getUserIdFromSession();
+            if ($job['responsibilities'] === ''){
+                $job['responsibilities'] = NULL;
+            }
+            if ($job['end_year'] === ''){
+                $job['end_year'] = NULL;
+            }
            
             JobModel::load()->update($job, $job['id']);
             
@@ -94,6 +100,12 @@ class JobController extends Controller
         $job['user_id'] = Helper::getUserIdFromSession(); //set id of user
         $job['created_by'] = Helper::getUserIdFromSession(); //add id of creator
         $job['created'] = date('Y-m-d'); // add timestamp
+        if ($job['responsibilities'] === ''){
+            $job['responsibilities'] = NULL;
+        }
+        if ($job['end_year'] === ''){
+            $job['end_year'] = NULL;
+        }
 
         JobModel::load()->store($job);  //send to database
 

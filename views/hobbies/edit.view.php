@@ -1,8 +1,8 @@
-<?php var_dump($vars); ?>
-
 <?php require 'views/partials/header.view.php' ?>
 
-<h3> edit </h3>
+<div class="d-flex justify-content-center my-4">
+    <h3> Edit hobby </h3>
+</div>
 
 <?php require 'views/hobbies/partials/form.view.php' ?>
 

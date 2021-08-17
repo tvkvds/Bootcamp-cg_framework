@@ -60,6 +60,9 @@ class ProjectController extends Controller
     {
         $project = $_POST; 
         $project['updated_by'] = Helper::getUserIdFromSession();
+        if ($project['role'] === ''){
+            $project['role'] = NULL;
+        }
        
         ProjectModel::load()->update($project, $project['id']);
 
@@ -83,6 +86,9 @@ class ProjectController extends Controller
         $project['user_id'] = Helper::getUserIdFromSession(); 
         $project['created_by'] = Helper::getUserIdFromSession(); 
         $project['created'] = date('Y-m-d'); 
+        if ($project['role'] === ''){
+            $project['role'] = NULL;
+        }
 
         ProjectModel::load()->store($project);  
 

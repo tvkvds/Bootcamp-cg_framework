@@ -64,6 +64,12 @@ class EducationController extends Controller
         $education['user_id'] = Helper::getUserIdFromSession(); 
         $education['created_by'] = Helper::getUserIdFromSession(); 
         $education['created'] = date('Y-m-d'); 
+        if ($education['end_year'] === ''){
+            $education['end_year'] = NULL;
+        }
+        if ($education['institution'] === ''){
+            $education['institution'] = NULL;
+        }
 
         //store to database
         EducationModel::load()->store($education);  
@@ -100,6 +106,14 @@ class EducationController extends Controller
     {
         $education = $_POST; 
         $education['updated_by'] = Helper::getUserIdFromSession();
+        if ($education['end_year'] === ''){
+            $education['end_year'] = NULL;
+        }
+        if ($education['institution'] === ''){
+            $education['institution'] = NULL;
+        }
+
+
         EducationModel::load()->update($education, $education['id']); 
 
         $msg = new \Plasticbrain\FlashMessages\FlashMessages();

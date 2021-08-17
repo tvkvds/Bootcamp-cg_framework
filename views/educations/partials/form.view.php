@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <label for="name">Name education:</label> 
                 <input type="text" class="form-control" name="name" placeholder="my education" 
-                value="<?= isset($vars['education']) ? $vars['education']->name : '' ?>">
+                value="<?= isset($vars['education']) ? $vars['education']->name : '' ?>" required>
             </div>
 
             <div class="col-md-6">
@@ -27,7 +27,7 @@
             <div class="col-md-12">
                 <label for="info">About:</label> 
                 <input type="text" class="form-control" min-height="500px" name="info" placeholder="About my education" 
-                value="<?= isset($vars['education']) ? $vars['education']->info : '' ?>">
+                value="<?= isset($vars['education']) ? $vars['education']->info : '' ?>" required>
             </div>
 
         </div>
@@ -37,7 +37,7 @@
             <div class="col-md-6">
                 <label for="start_year">Started in: </label> 
                 <input type="text" class="form-control" step="1" name="start_year" placeholder="1998" 
-                value="<?= isset($vars['education']) ? $vars['education']->start_year : '' ?>" />
+                value="<?= isset($vars['education']) ? $vars['education']->start_year : '' ?>" required />
             </div>
 
             <div class="col-md-6">

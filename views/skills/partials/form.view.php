@@ -33,10 +33,22 @@
                 value="<?= isset($vars['skill']) ? $vars['skill']->category : '' ?>">
             </div>
 
-            <div class="col-md-3">
-            <label for="in_progress">Learning:</label> 
-                <input class="form-control" type="text" name="in_progress" placeholder="radio" 
-                value="<?= isset($vars['skill']) ? $vars['skill']->in_progress : '' ?>">
+            <div class="col-md-6 ml-3 mb-3 form-group form-check">
+
+                <?php if(isset($vars['skill']->in_progress) == "1"): ?>
+                    <input checked class="form-check-input" type="radio" name="in_progress" value="1">
+                <?php  else: ?>
+                    <input  class="form-check-input" type="radio" name="in_progress" value="1">
+                <?php  endif?>
+                <label class="form-check-label" for="code">Acquired</label><br>
+
+                <?php  if(isset($vars['skill']->in_progress) == "0"): ?>
+                    <input checked class="form-check-input" type="radio" name="in_progress" value="0">
+                <?php else: ?>
+                    <input class="form-check-input" type="radio" name="in_progress" value="0">
+                <?php  endif?>
+                <label class="form-check-label" for="code">Learning</label><br>
+                
             </div>
 
         </div>

@@ -56,6 +56,9 @@ class HobbyController extends Controller
     {
         $hobby = $_POST; //get data from req
         $hobby['updated_by'] = Helper::getUserIdFromSession();
+        if ($hobby['description'] === ''){
+            $hobby['description'] = NULL;
+        }
        
         HobbyModel::load()->update($hobby, $hobby['id']);
 
@@ -79,6 +82,9 @@ class HobbyController extends Controller
         $hobby['user_id'] = Helper::getUserIdFromSession(); //set id of user
         $hobby['created_by'] = Helper::getUserIdFromSession(); //add id of creator
         $hobby['created'] = date('Y-m-d'); // add timestamp
+        if ($hobby['description'] === ''){
+            $hobby['description'] = NULL;
+        }
 
         HobbyModel::load()->store($hobby);  //send to database
 
