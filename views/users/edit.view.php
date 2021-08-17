@@ -1,17 +1,9 @@
 <?php require 'views/partials/header.view.php' ?>
 
-    Edit page
-    <?php $user = $vars["user"];?>
-    <br>
-    <br>
+<div class="d-flex justify-content-center my-4">
+    <h3> Edit profile </h3>
+</div>
 
-    <div class="user">
-        <?= $user->first_name . ' ' . $user->last_name?>
-        <?= $user->city?>
-        <?= $user->birthday?>
-    </div>
-
-   <?php require 'views/users/partials/form.view.php' ?>
-
-   
+<?php require 'views/users/partials/form.view.php' ?>
+ 
 <?php require 'views/partials/footer.view.php' ?>

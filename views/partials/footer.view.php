@@ -14,7 +14,7 @@
             <div class="col-2 ">
                 <h6 class=" row">Educations</h6>
                 <a href="/education" class='row'>My educations</a>
-                <a href="education/<?=$_SESSION['user']['uid']?>/create" class='row'>New education</a>
+                <a href="/education/<?=$_SESSION['user']['uid']?>/create" class='row'>New education</a>
             </div>
 
             <div class="col-2 ">
