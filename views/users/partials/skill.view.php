@@ -29,6 +29,7 @@
                         <div class="col">
                             <?= (isset($skill->description) ? $skill->description : '')?>
                         </div>
+                        
                     </div>
 
                     <?php if ($_SESSION['user']['uid'] == $skill->user_id) :?>
@@ -43,7 +44,7 @@
                 
                     
             <?php endforeach;?>
-            <?php if ($_SESSION['user']['uid'] == $project->user_id) :?>
+            <?php if ($_SESSION['user']['uid'] == $skill->user_id) :?>
                 <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
                     <a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new skill</a>
                 </div>

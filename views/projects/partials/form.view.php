@@ -38,16 +38,16 @@
             <div class="col-md-6 ml-3 mb-3 form-group form-check">
 
                 <?php if(isset($vars['project']->live) == "1"): ?>
-                  <input checked class="form-check-input" type="radio" name="live" value="1">
+                    <input checked class="form-check-input" type="radio" name="live" value="1">
                 <?php  else: ?>
-                <input  class="form-check-input" type="radio" name="live" value="1">
+                    <input  class="form-check-input" type="radio" name="live" value="1">
                 <?php  endif?>
                 <label class="form-check-label" for="code">Live</label><br>
 
                 <?php  if(isset($vars['project']->live) == "0"): ?>
                     <input checked class="form-check-input" type="radio" name="live" value="0">
                 <?php else: ?>
-                <input class="form-check-input" type="radio" name="live" value="0">
+                    <input class="form-check-input" type="radio" name="live" value="0">
                 <?php  endif?>
                 <label class="form-check-label" for="code">Code</label><br>
                 

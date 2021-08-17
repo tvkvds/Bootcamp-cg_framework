@@ -11,7 +11,6 @@
  * ---------------------------------------------------------------------------------------------------------
 */
 
-use App\Helpers\Helper;
 use App\Middleware\WhenNotLoggedin;
 use App\Middleware\Permissions;
 

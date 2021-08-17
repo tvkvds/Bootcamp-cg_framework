@@ -1,30 +1,69 @@
-<?php var_dump($vars);?>
-<?php # var_dump($vars); ?>
-
 <?php require 'views/partials/header.view.php' ?>
 
-<h3> Index </h3>
+<div class="row profile-top px-4  d-flex justify-content-center">
+    <a href="/skill" name="projects"><h4>Skill</h4></a>
+</div>
 
-<?php if ($vars['skills'] == NULL) :?>
-    <h3>You have not added a skill yet.</h3>
+<?php if (!$vars['skills'] == NULL) :?>
+
+<div class="px-4 mt-4  row d-flex justify-content-center">
+    <div class="col">
+        <?php $skills = $vars['skills']?>
+        <?php foreach ($skills as $skill) :?>
+            <div class="educations">
+                <div class="row row px-4 pt-2 mt-2 ">
+
+                    <div class="col">
+                        <b> <?= (isset($skill->category) ? $skill->category : '')?> </b>
+                    </div>
+
+                    <div class="col-1">
+                        <?= (isset($skill->skill) ? $skill->skill : '')?>
+                    </div>
+
+                    <div class="col-1">
+                        <?= (isset($skill->in_progress) ? $skill->in_progress : '')?>
+                    </div>
+
+                </div>
+                <div class="row row px-4 pt-2 mt-2 ">
+
+                    <div class="col">
+                        <?= (isset($skill->description) ? $skill->description : '')?>
+                    </div>
+                    
+                </div>
+
+                <?php if ($_SESSION['user']['uid'] == $skill->user_id) :?>
+
+                    <div class="row row px-4 pt-2 mt-2 d-flex justify-content-center editdelete">
+                        <a href="/skill/<?=$skill->id?>/edit"><button  class="btn">Edit</button></a>
+                        <a href="/skill/<?=$skill->id?>/destroy"><button  class="btn">Delete</button></a>
+                    </div>
+
+                <?php endif;?>
+            </div>
+            
+                
+        <?php endforeach;?>
+        <?php if ($_SESSION['user']['uid'] == $skill->user_id) :?>
+            <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
+                <a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new skill</a>
+            </div>
+        <?php endif;?>
+    </div>
+</div>
+
 <?php else :?>
-    <ul>
-    <?php foreach ($vars['skills'] as $skill) : ?>
-        <li>
-            <a href="skill/<?= $skill->id?>">
-                <?= $skill->skill?>
-                <?= $skill->description?>
-                <?= $skill->category?>
-                <?= $skill->in_progress?>
-            </a>    
-        </li>
-    <?php endforeach ;?>
-    </ul>
-        
+
+    <div class="p-4 mt-4 row d-flex justify-content-center">
+        <h4>You have not added any skills yet!</h4>
+    </div>
+
+    <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
+        <a href="/skill/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new skill</a>
+    </div>
+
 <?php endif;?>
-
-<a href="skill/<?=$vars['user']?>/create"><h3>Add new</h3></a>
-
-
 
 <?php require 'views/partials/footer.view.php' ?>

@@ -3,10 +3,8 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
-use App\Libraries\MySql;
 use App\Models\HobbyModel;
 use App\Libraries\View;
-use App\Models\RoleModel;
 
 class HobbyController extends Controller
 {
@@ -42,17 +40,14 @@ class HobbyController extends Controller
     public function edit()
     {
         $hobby = new HobbyModel;
-
-        $hobby->id = Helper::getIdFromUrl('hobby'); //gets id of requested education
+        $hobby->id = Helper::getIdFromUrl('hobby'); 
         
-        $hobby = HobbyModel::load()->get($hobby->id); //gets one education record
+        $hobby = HobbyModel::load()->get($hobby->id); 
 
         return View::render('hobbies/edit.view', [
-            'method'    => 'POST',  //set method for the form
-            'action'    => '/hobby/' . $hobby->id . '/update', //set where the form must be submitted to
-            'hobby' => $hobby, //set data being passed to page
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-            ''
+            'method'    => 'POST',  
+            'action'    => '/hobby/' . $hobby->id . '/update', 
+            'hobby' => $hobby, 
         ]);
     }
 
@@ -61,6 +56,9 @@ class HobbyController extends Controller
     {
         $hobby = $_POST; //get data from req
         $hobby['updated_by'] = Helper::getUserIdFromSession();
+        if ($hobby['description'] === ''){
+            $hobby['description'] = NULL;
+        }
        
         HobbyModel::load()->update($hobby, $hobby['id']);
 
@@ -71,24 +69,26 @@ class HobbyController extends Controller
     public function create()
     {
         return View::render('hobbies/create.view', [
-            'method'    => 'POST', // set method for form
-            'action' => '/hobby/store', //set destination for form
-            'roles'     => RoleModel::load()->all(), //get roles for permission middleware
+            'method'    => 'POST', 
+            'action' => '/hobby/store', 
+            
         ]);
     }
 
     //store new hobby from create()
     public function store()
     {
-
         $hobby = $_POST;  //set vars from user
         $hobby['user_id'] = Helper::getUserIdFromSession(); //set id of user
         $hobby['created_by'] = Helper::getUserIdFromSession(); //add id of creator
         $hobby['created'] = date('Y-m-d'); // add timestamp
+        if ($hobby['description'] === ''){
+            $hobby['description'] = NULL;
+        }
 
         HobbyModel::load()->store($hobby);  //send to database
 
-        return View::redirect("hobby"); //redirect to index page educations
+        return View::redirect("hobby"); //redirect to index page 
 
     }
 
@@ -99,9 +99,7 @@ class HobbyController extends Controller
         
         HobbyModel::load()->destroy($id);
         
-        return View::redirect("hobby",[
-            'roles'     => RoleModel::load()->all(), //load roles for permission middleware
-        ]);
+        return View::redirect("hobby");
     }
 
 }

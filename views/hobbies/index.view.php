@@ -1,25 +1,61 @@
-<?php # var_dump($vars); ?>
-
 <?php require 'views/partials/header.view.php' ?>
 
-    <h3>index</h3>
+<div class="row profile-top px-4  d-flex justify-content-center">
+    <a href="/hobby" name="projects"><h4>Hobby</h4></a>
+</div>
 
-    <?php if ($vars['hobbies'] == NULL) :?>
-    <h3>You have not added a hobby yet.</h3>
-    <?php else :?>
-    
-    <ul>
-    <?php foreach ($vars['hobbies'] as $hobby) : ?>
-        <li>
-            <a href="hobby/<?= $hobby->id?>">
-                <?= $hobby->hobby?>
-                <?= $hobby->description?>
-            </a>    
-        </li>
-    <?php endforeach ;?>
-    </ul>
-    <?php endif; ?>
+<?php if (!$vars['hobbies'] == NULL) :?>
 
-    <a href="hobby/<?=$vars['user']?>/create"><h3>Add new</h3></a>
+    <div class="px-4 mt-4  row d-flex justify-content-center">
+        <div class="col">
+            <?php $hobbies = $vars['hobbies']?>
+            <?php foreach ($hobbies as $hobby) :?>
+                <div class="educations">
+
+                    <div class="row row px-4 pt-2 mt-2 ">
+                        <div class="col">
+                            <b> <?= (isset($hobby->hobby) ? $hobby->hobby : '')?> </b>
+                        </div>
+                    </div>
+
+                    <div class="row row px-4 pt-2 mt-2 ">
+                        <div class="col">
+                            <?= (isset($hobby->description) ? $hobby->description : '')?>
+                        </div>
+                    </div>
+
+                    <?php if ($_SESSION['user']['uid'] == $hobby->user_id) :?>
+                        <div class="row row px-4 pt-2 mt-2 d-flex justify-content-center editdelete">
+                            <a href="/hobby/<?=$hobby->id?>/edit"><button  class="btn">Edit</button></a>
+                            <a href="/hobby/<?=$hobby->id?>/destroy"><button  class="btn">Delete</button></a>
+                        </div>
+                    <?php endif;?>
+
+                </div>
+                
+                    
+            <?php endforeach;?>
+
+            <?php if ($_SESSION['user']['uid'] == $hobby->user_id) :?>
+
+                <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
+                    <a href="/hobby/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new hobby</a>
+                </div>
+
+            <?php endif;?>
+        </div>
+    </div>
+
+<?php else :?>
+
+    <div class="p-4 mt-4 row d-flex justify-content-center">
+        <h4>You have not added any hobbies yet!</h4>
+    </div>
+
+    <div class="row px-5 mx-5 my-4 py-2 d-flex justify-content-center addnew btn">
+        <a href="/hobby/<?=$_SESSION['user']['uid']?>/create" class='row'>Add new hobby</a>
+    </div>
+
+<?php endif;?>
 
 <?php require 'views/partials/footer.view.php' ?>

@@ -1,32 +1,34 @@
 
-<form method="<?= $vars['method'] ?>" action="<?=$vars['action']?>">
+<form method="<?= $vars['method'] ?>" action="<?=$vars['action']?>" class="my-5">
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
-    <div class="row mb-3">
+        <div class="row mb-3 form-group">
 
-        <div class="col-md-6">
-        <input type="text" name="hobby" placeholder="hobby" 
-        value="<?= isset($vars['hobby']) ? $vars['hobby']->hobby : '' ?>">
-        </div>
-        
-    </div>
-
-    <div class="row mb-3">
-
-        <div class="col-md-6">
-        <input type="text" name="description" placeholder="description" 
-        value="<?= isset($vars['hobby']) ? $vars['hobby']->description : '' ?>">
+            <div class="col-md-6">
+                <label for="hobby">My hobby</label> 
+                <input type="text" class="form-control" name="hobby" placeholder="knitting" 
+                value="<?= isset($vars['hobby']) ? $vars['hobby']->hobby : '' ?>" required>
+            </div>
+            
         </div>
 
+        <div class="row mb-3 form-group">
+
+            <div class="col-md-6">
+                <label for="description">About</label> 
+                <input type="text" class="form-control" name="description" placeholder="Describe your hobby" 
+                value="<?= isset($vars['hobby']) ? $vars['hobby']->description : '' ?>">
+            </div>
+
+        </div>
+
+        <input type="hidden" name="f_token" value="<?= createToken() ?>">
+        <input type="hidden" name="id" value="<?= isset($vars['hobby']) ? 
+        $vars['hobby']->id : '' ?>">
+
+        <input type="submit" class="form-button btn" value="Save Hobby">
+
     </div>
-
-    <input type="hidden" name="f_token" value="<?= createToken() ?>">
-    <input type="hidden" name="id" value="<?= isset($vars['hobby']) ? 
-    $vars['hobby']->id : '' ?>">
-
-    <input type="submit" value="Opslaan">
-
-</div>
 
 </form>

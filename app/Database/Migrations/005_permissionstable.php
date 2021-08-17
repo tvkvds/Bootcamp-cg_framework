@@ -163,7 +163,70 @@ return [
 
         //skill table permissions
 
+        [
+            'name'       => 'show_skill',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'create_skill',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'read_skill',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+        
+        [
+            'name'       => 'update_skill',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'delete_skill',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
         //hobby table permissions
+
+        [
+            'name'       => 'show_hobby',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'create_hobby',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'read_hobby',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+        
+        [
+            'name'       => 'update_hobby',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+        [
+            'name'       => 'delete_hobby',
+            'created'    => date('Y-m-d H:i:s'),
+            'created_by' => 1
+        ],
+
+
+
 
 
 
