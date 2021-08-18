@@ -147,4 +147,26 @@ class Model
         return count($res) > 0 ? $res[0] : null;
     }
 
+    //get timestamp latest addition of user content tables
+    public function getLatestUpdate(int $id)
+    {
+        if ($id === NULL) return NULL;
+    
+        $sql = "SELECT " . $this->model . ".created as latest_update, " . $this->model . ".user_id FROM " . $this->model . "
+        where " . $this->model . ".user_id = 4
+        UNION 
+        SELECT " . $this->model . ".updated, " . $this->model . ".user_id  FROM " . $this->model . " 
+        where " . $this->model . ".user_id = 4
+        order by latest_update DESC
+        limit 1";
+        
+        
+
+
+
+        $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
+
+        return count($res) > 0 ? $res[0] : null;
+    }
+
 }
