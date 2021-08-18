@@ -68,7 +68,9 @@
 
 <div class="row px-4 pb-4  d-flex justify-content-center">
     <span>
+    <?php if (isset($vars['updated']['hobbies']->latest_update)) :?>
         <?php $updated = new DateTime($vars['updated']['hobbies']->latest_update);?>
         updated: <?= $updated->format('d-m-Y');?>
+        <?php endif ?>
     </span>
 </div>

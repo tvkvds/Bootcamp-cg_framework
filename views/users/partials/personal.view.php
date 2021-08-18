@@ -31,7 +31,12 @@
     </div>
     <div class="col">
         <div class="row px-4 ">
-            <?='  ' . (isset($user->birthday) ? $user->birthday : '')?>
+            <?php if (isset($user->birthday)) : ?>
+            <?php $bd = new DateTime($user->birthday);?>
+            <?= $bd->format('d m Y');?>
+            <?php else : ?>
+            <?= ' '?>
+            <?php endif ?>
         </div>
         <div class="row px-4 ">
             <?=(isset($user->country) ? $user->country : '')?>
@@ -99,8 +104,10 @@
 
 <div class="row px-4 pb-4  d-flex justify-content-center">
     <span>
+    <?php if (isset($vars['updated']['user']->latest_update)) :?>
         <?php $updated = new DateTime($vars['updated']['user']->latest_update);?>
         updated: <?= $updated->format('d-m-Y');?>
+        <?php endif ?>
     </span>
 </div>
 

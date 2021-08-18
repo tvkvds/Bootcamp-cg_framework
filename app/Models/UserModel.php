@@ -114,11 +114,12 @@ class UserModel extends Model
      {
          if ($id === NULL) return NULL;
      
-         $sql = "SELECT " . $this->model . ".created as latest_update, " . $this->model . ".id FROM " . $this->model . "
-         where " . $this->model . ".id = 4
+         $sql = 
+         "SELECT " . $this->model . ".created as latest_update, " . $this->model . ".id FROM " . $this->model . "
+         where " . $this->model . ".id = " . $id . "
          UNION 
          SELECT " . $this->model . ".updated, " . $this->model . ".id  FROM " . $this->model . " 
-         where " . $this->model . ".id = 4
+         where " . $this->model . ".id = " . $id . "
          order by latest_update DESC
          limit 1";
  
