@@ -63,7 +63,16 @@ class UserController extends Controller
                 'projects' => $projectModel->getNumRecords($user_id),
                 'jobs' => $jobModel->getNumRecords($user_id),
 
-                ]
+            ],
+            // get timestamp latest creation/update per table
+            'updated' => [
+                'educations' => $educationModel->getLatestUpdate($user_id),
+                'skills' => $skillModel->getLatestUpdate($user_id),
+                'hobbies' => $hobbyModel->getLatestUpdate($user_id),
+                'projects' => $projectModel->getLatestUpdate($user_id),
+                'jobs' => $jobModel->getLatestUpdate($user_id),
+                'user' => $userModel->getLatestUpdateUser($user_id)
+            ]
         
         ]);  
     }

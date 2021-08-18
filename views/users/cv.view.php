@@ -4,6 +4,7 @@
 <?php $user = $vars['user'];?>
 <?php $projects = $vars['projects'];?>
 
+
 <div class="row container-fluid">
 
     <div class="col-8 p-4 ml-5 mr-2">

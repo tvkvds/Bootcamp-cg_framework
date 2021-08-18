@@ -147,4 +147,28 @@ class Model
         return count($res) > 0 ? $res[0] : null;
     }
 
+    //get timestamp latest mutation of user content tables
+    public function getLatestUpdate(int $id)
+    {
+        if ($id === NULL) return NULL;
+        
+        //create one list/column of timestamps for created, updated, deleted
+        //of a table, per specific user, output most recent timestamp
+        $sql = 
+        "SELECT " . $this->model . ".created as latest_update, " . $this->model . ".user_id FROM " . $this->model . "
+        where " . $this->model . ".user_id = " . $id . "
+        UNION 
+        SELECT " . $this->model . ".updated, " . $this->model . ".user_id  FROM " . $this->model . " 
+        where " . $this->model . ".user_id = " . $id . "
+        UNION 
+        SELECT " . $this->model . ".deleted, " . $this->model . ".user_id FROM " . $this->model . " 
+        where " . $this->model . ".user_id = 4 and " . $this->model . ".deleted != null
+        order by latest_update DESC
+        limit 1";
+
+        $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
+
+        return count($res) > 0 ? $res[0] : null;
+    }
+
 }
