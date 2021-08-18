@@ -7,8 +7,8 @@
 
 <?php if (!$vars['educations'] == NULL) :?>
 
-    <div class="px-4 mt-4  row d-flex justify-content-center">
-        <div class="col">
+    <div class="px-4 mt-4 row d-flex justify-content-center">
+        <div class="col-8">
             <?php $educations = $vars['educations']?>
             <?php foreach ($educations as $education) :?>
                 <div class="educations">

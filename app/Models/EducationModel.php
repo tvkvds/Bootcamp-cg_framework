@@ -39,17 +39,6 @@ class EducationModel extends Model
         );   
     }
 
-    private function composeQuery(array $fields)
-    {
-        $getFields = '';
-
-        foreach ($fields as $field)
-        {
-            $getFields .= $field . ',';
-        }
-
-        return rtrim($getFields, ',');
-    }
 
     public function getUserEducations(int $id, array $selectedFields = null)
     {
@@ -66,4 +55,5 @@ class EducationModel extends Model
 
         return count($res) > 0 ? $res : null;
     }
+
 }

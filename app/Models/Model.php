@@ -121,7 +121,7 @@ class Model
     }
     
 
-    private function composeQuery(array $fields)
+    protected function composeQuery(array $fields)
     {
         $getFields = '';
 
@@ -131,6 +131,20 @@ class Model
         }
 
         return rtrim($getFields, ',');
+    }
+
+
+    //retrieves amount of records of user in table
+    public function getNumRecords(int $id)
+    {
+        if ($id === NULL) return NULL;
+    
+        $sql = "SELECT users.id as user_id, COUNT(" . $this->model . ".id) as num FROM " . "users " . 
+        "LEFT JOIN " . $this->model . " on " . $this->model . ".user_id = users.id GROUP BY users.id having users.id = " . $id;
+        #dd($sql);
+        $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
+
+        return count($res) > 0 ? $res[0] : null;
     }
 
 }

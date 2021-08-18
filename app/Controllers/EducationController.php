@@ -17,7 +17,7 @@ class EducationController extends Controller
         
         $education = new EducationModel();
         $id = Helper::getUserIdFromSession(); //set user id 
-
+        
         return View::render('educations/index.view', [
             
             'educations' => $education->getUserEducations($id),
@@ -117,7 +117,7 @@ class EducationController extends Controller
         EducationModel::load()->update($education, $education['id']); 
 
         $msg = new \Plasticbrain\FlashMessages\FlashMessages();
-        $msg->info('Your education has been edited!');
+        $msg->success('Your education has been edited!');
 
         return View::redirect('education',[
             

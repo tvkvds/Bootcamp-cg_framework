@@ -39,18 +39,6 @@ class SkillModel extends Model
         );   
     }
 
-    private function composeQuery(array $fields)
-    {
-        $getFields = '';
-
-        foreach ($fields as $field)
-        {
-            $getFields .= $field . ',';
-        }
-
-        return rtrim($getFields, ',');
-    }
-
     public function getUserSkills(int $id, array $selectedFields = null)
     {
         if ($id === 0) return null;
