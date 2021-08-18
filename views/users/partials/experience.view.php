@@ -76,3 +76,10 @@
     <?php endif;?>
 
 <?php endif;?>
+
+<div class="row px-4 pb-4  d-flex justify-content-center">
+    <span>
+        <?php $updated = new DateTime($vars['updated']['jobs']->latest_update);?>
+        updated: <?= $updated->format('d-m-Y');?>
+    </span>
+</div>

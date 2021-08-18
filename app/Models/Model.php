@@ -159,10 +159,6 @@ class Model
         where " . $this->model . ".user_id = 4
         order by latest_update DESC
         limit 1";
-        
-        
-
-
 
         $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
 
