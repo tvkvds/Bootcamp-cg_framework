@@ -1,7 +1,7 @@
 
 <form method="<?= $vars['method'] ?>" action="<?=$vars['action']?>" class="my-5">
 
-    <div class="container mt-5">
+    <div class="container col-6 mt-5">
 
         <div class="row mb-3 form-group">
 
@@ -18,9 +18,6 @@
             </div>
 
         </div>
-
-        
-
 
         <div class="row mb-3 form-group">
 

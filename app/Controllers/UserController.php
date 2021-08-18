@@ -42,15 +42,29 @@ class UserController extends Controller
         $projectModel = new ProjectModel();
         $skillModel = new SkillModel();
         
+        
         return View::render('users/cv.view',[
             //exclude password from being passed to the view
             'user'       => $userModel->get($user_id, ['first_name', 'last_name', 'country',
             'city', 'birthday', 'insertion', 'email', 'id', 'role']),
+            
+            //other data
             'educations' => $educationModel->getUserEducations($user_id),
             'hobbies'    => $hobbyModel->getUserHobbies($user_id),
             'jobs'       => $jobModel->getUserJobs($user_id),
             'projects'   => $projectModel->getUserProjects($user_id),
             'skills'     => $skillModel->getUserSkills($user_id),
+            
+            //get number of records per table 
+            'records'     => [
+                'educations' => $educationModel->getNumRecords($user_id),
+                'skills' => $skillModel->getNumRecords($user_id),
+                'hobbies' => $hobbyModel->getNumRecords($user_id),
+                'projects' => $projectModel->getNumRecords($user_id),
+                'jobs' => $jobModel->getNumRecords($user_id),
+
+                ]
+        
         ]);  
     }
 

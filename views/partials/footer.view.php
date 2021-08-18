@@ -1,4 +1,4 @@
-<footer class="p-5 d-flex justify-content-center mt-auto py-3 sticky-bottom">
+<footer class="p-3 d-flex justify-content-center mt-auto footer py-4">
     <div class="container row">
 
         <?php if (isset($_SESSION['user']['uid'])) :?>
@@ -6,9 +6,7 @@
             <div class="col-2 ">
                 <h6 class="row">Users</h6>
                 <a href="/users" class='row'>All users</a>
-                <a href="/user/<?= $_SESSION['user']['uid']?>" class='row'>This user</a>
                 <a href="/user/create" class='row'>New user</a>
-                <a href="/user/<?= $_SESSION['user']['uid']?>/edit" class='row'>Edit user</a>
             </div>
 
             <div class="col-2 ">

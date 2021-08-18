@@ -39,17 +39,6 @@ class JobModel extends Model
         );   
     }
 
-    private function composeQuery(array $fields)
-    {
-        $getFields = '';
-
-        foreach ($fields as $field)
-        {
-            $getFields .= $field . ',';
-        }
-
-        return rtrim($getFields, ',');
-    }
 
     public function getUserJobs(int $id, array $selectedFields = null)
     {
